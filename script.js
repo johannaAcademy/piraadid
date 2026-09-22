@@ -1,3 +1,4 @@
+document.documentElement.classList.add("js");
 const form=document.querySelector("#rsvpForm"),status=document.querySelector("#status");
 form?.addEventListener("submit",async e=>{
  e.preventDefault();status.textContent="⚓ Saadan kaptenile...";
