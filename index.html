@@ -3,139 +3,185 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#07191d">
-<title>Mereröövlid Pardal ☠️</title>
+<meta name="theme-color" content="#05080a">
+<title>MERERÖÖVLID PARDAL — KAPTENI KUTSE</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=IM+Fell+English+SC&family=Inter:wght@400;600;800&display=swap');
-:root{--night:#061318;--sea:#0a2730;--sea2:#0f414d;--paper:#ead8aa;--paper2:#caa96a;--gold:#e2b653;--red:#9b2d1e;--ink:#1c130d;--cream:#fff0c5}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--night);color:#f6e8bf;font-family:Inter,sans-serif;overflow-x:hidden}
-a{color:inherit}.topbar{position:fixed;z-index:100;top:0;left:0;right:0;display:flex;align-items:center;gap:26px;padding:15px 5vw;background:linear-gradient(#041014ee,transparent);backdrop-filter:blur(7px)}
-.logo{font-family:"IM Fell English SC";font-size:22px;color:var(--gold);text-decoration:none;margin-right:auto}.topbar a:not(.logo){font:12px Cinzel;letter-spacing:1.5px;text-decoration:none}.sound{border:1px solid #9f7b3e;background:#170f0acc;color:#ffe4a4;padding:9px 13px;border-radius:99px;font-weight:800}
-.hero{min-height:100svh;position:relative;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 15%,#20545d 0,#0a2932 38%,#061318 75%)}
-.stars{position:absolute;inset:0;background-image:radial-gradient(#e9d18e 1px,transparent 1px);background-size:83px 83px;opacity:.25;animation:stars 16s linear infinite}
-@keyframes stars{to{background-position:83px 0}}
-.moon{position:absolute;width:180px;height:180px;border-radius:50%;right:10%;top:14%;background:#f2db9b;box-shadow:0 0 80px #f0d58a66}
-.hero-copy{position:relative;z-index:3;text-align:center;max-width:950px;padding:120px 22px 80px}
-.eyebrow{font:20px "IM Fell English SC";letter-spacing:5px}.hero h1{font:900 clamp(54px,10vw,116px)/.88 Cinzel;margin:24px 0;text-shadow:0 7px #35140d,0 18px 50px #000}
-.hero p{font:24px "IM Fell English SC";max-width:720px;margin:0 auto 25px}.date{display:inline-flex;gap:12px;flex-wrap:wrap;justify-content:center;font:700 14px Cinzel}.date span{padding:13px 18px;border:1px solid #c39b51;background:#071318bb}
-.btn{display:inline-block;margin-top:25px;padding:15px 25px;background:linear-gradient(#b43d26,#702016);border:2px solid var(--gold);box-shadow:0 6px #35110c,0 15px 35px #0008;text-decoration:none;font:800 14px Cinzel;letter-spacing:1px;transition:.2s}.btn:hover{transform:translateY(-3px) rotate(-1deg)}
-.ocean{position:absolute;bottom:-1px;left:-5%;width:110%;height:28%;background:linear-gradient(#0a3742,#06171c);clip-path:polygon(0 30%,7% 24%,14% 31%,21% 20%,29% 29%,37% 18%,46% 28%,55% 15%,63% 28%,72% 17%,81% 28%,89% 19%,100% 29%,100% 100%,0 100%);animation:water 4s ease-in-out infinite alternate}
-@keyframes water{to{transform:translateY(10px) scaleY(1.03)}}
-.ship{position:absolute;z-index:2;bottom:15%;left:50%;width:min(650px,80vw);height:280px;transform:translateX(-50%);animation:float 4s ease-in-out infinite;filter:drop-shadow(0 25px 25px #0008)}
-@keyframes float{50%{transform:translateX(-50%) rotate(1deg) translateY(-12px)}}
-.hull{position:absolute;left:8%;right:8%;bottom:15px;height:100px;background:linear-gradient(145deg,#5b2b16,#2b140d);border:4px solid #9a6932;clip-path:polygon(4% 0,96% 0,83% 78%,68% 100%,28% 100%,13% 78%)}
-.deck{position:absolute;left:16%;right:16%;bottom:100px;height:35px;background:#77421f;border:3px solid #b07b3d;border-radius:3px}
-.mast{position:absolute;left:50%;bottom:100px;width:12px;height:245px;background:#5d361c;border:2px solid #b17c3e;transform:translateX(-50%)}.mast:after{content:"";position:absolute;left:7px;top:22px;width:235px;height:155px;background:#171114;border:3px solid #9d6e36;clip-path:polygon(0 0,100% 18%,76% 88%,8% 100%);background-image:radial-gradient(circle at 50% 50%,#c23b27 0 13%,transparent 14%)}
-.flag{position:absolute;top:-8px;left:7px;font-size:50px;animation:flag 1.7s ease-in-out infinite alternate}@keyframes flag{to{transform:skewY(-5deg)}}
-.rope{position:absolute;bottom:87px;left:20%;width:60%;border-top:2px solid #d4a75b;transform:rotate(-9deg);opacity:.8}.lantern{position:absolute;bottom:130px;font-size:28px;animation:lantern 1.8s ease-in-out infinite alternate}.lantern.a{left:12%}.lantern.b{right:12%}@keyframes lantern{to{filter:drop-shadow(0 0 14px #ffb52e);transform:translateY(-5px)}}
-.section{padding:100px 6vw}.wrap{max-width:1150px;margin:auto}.dark{background:linear-gradient(#06171c,#092d36)}.wood{background:repeating-linear-gradient(8deg,#29170d 0 9px,#351e12 9px 15px,#21120b 15px 19px)}.paper{background:var(--paper);color:var(--ink)}
-.title{text-align:center;font:800 clamp(32px,5vw,58px) Cinzel;margin:0 0 12px}.subtitle{text-align:center;font:20px "IM Fell English SC";margin:0 auto 42px;max-width:700px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{padding:28px;background:linear-gradient(145deg,#21130c,#3a2113);border:1px solid #a47b3e;box-shadow:0 14px 35px #0005;transition:.25s}.card:hover{transform:translateY(-6px) rotate(-.4deg)}.icon{font-size:42px}.card h3{font:800 22px Cinzel;margin:13px 0}.card p{line-height:1.7;color:#eadbbd}.card b{color:#f4c967}
-.story{max-width:850px;margin:auto;font:23px/1.75 "IM Fell English SC";text-align:center}.story strong{color:#a92e20}
-.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:45px}.time{border-top:3px solid #b8883f;padding:18px;background:#160d08bb}.time strong{font:800 24px Cinzel;display:block;color:#f0c869}.time span{font:15px Inter;color:#ead9b7}
-.mapbox{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:stretch}.map{min-height:500px;position:relative;overflow:hidden;border:9px solid #503019;background:#d4b879;box-shadow:0 18px 45px #0005;background-image:radial-gradient(circle at 20% 30%,#6f8c6a33 0 8%,transparent 9%),radial-gradient(circle at 72% 65%,#6f8c6a33 0 12%,transparent 13%),repeating-linear-gradient(25deg,transparent 0 65px,#5f4a2a22 66px 68px)}.route{position:absolute;inset:0;width:100%;height:100%}.mapcard{background:#ead8aa;padding:30px;box-shadow:0 18px 40px #0004}.mapcard h3{font:800 29px Cinzel;margin-top:0}.mapcard li{margin:17px 0;line-height:1.55}.compass{position:absolute;right:22px;top:20px;font-size:70px;opacity:.55}.pin{font-size:42px}
-.rsvp{max-width:780px;margin:auto;padding:35px;background:linear-gradient(145deg,#21130c,#3b2214);border:2px solid #a67a39;box-shadow:0 18px 45px #0006}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:15px}label{font-weight:800;font-size:14px}input,select,textarea{margin-top:7px;width:100%;padding:13px;border:1px solid #9d773e;background:#f1dfb5;color:#21150d;font:inherit;border-radius:3px}textarea{min-height:105px}.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:15px 0}.choices label{padding:15px;text-align:center;background:#160c08;border:1px solid #76572e}.choices input{width:auto;margin:0 6px 0 0}.submit{width:100%;padding:15px;border:2px solid var(--gold);background:#8f291b;color:#ffe7a8;font:800 14px Cinzel}.small{font-size:12px;line-height:1.5;opacity:.7;margin-top:12px}
-.treasure{margin:45px auto 0;max-width:650px;text-align:center}.chest{font-size:80px;cursor:pointer;transition:.25s}.chest:hover{transform:rotate(-5deg) scale(1.08)}#secret{display:none;background:#160c08;border:1px dashed #b58a46;padding:18px;margin-top:10px}.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;margin-top:35px}.gallery div{min-height:180px;border:2px solid #9e773d;display:grid;place-items:center;font-size:55px;background:radial-gradient(circle,#174751,#07181d);box-shadow:0 10px 25px #0005}.gallery div:first-child{grid-row:span 2}
-footer{text-align:center;padding:70px 20px;background:#03090b;font:24px "IM Fell English SC"}footer .sk{font-size:55px}
-@media(max-width:850px){.topbar a:not(.logo){display:none}.cards,.timeline,.mapbox{grid-template-columns:1fr}.formgrid,.choices{grid-template-columns:1fr}.ship{bottom:17%}.moon{width:100px;height:100px}.hero p{font-size:20px}.section{padding:75px 18px}.gallery{grid-template-columns:1fr 1fr}.gallery div:first-child{grid-column:span 2;grid-row:auto}}
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=IM+Fell+English+SC&family=Pirata+One&family=Inter:wght@400;600;800&display=swap');
+
+:root{
+ --black:#030506;--ink:#120c08;--blood:#7f1d16;--blood2:#b52d1f;
+ --gold:#d6a844;--gold2:#f2d27a;--bone:#ead9b0;--sea:#06141a;
+ --paper:#d8bd80;--paperDark:#9a7841;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--black);color:var(--bone);font-family:Inter,sans-serif;overflow-x:hidden}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.08;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit}
+.nav{position:fixed;z-index:100;top:0;left:0;right:0;height:68px;padding:0 4vw;display:flex;align-items:center;gap:25px;background:linear-gradient(#020304f5,transparent);border-bottom:1px solid #c08f3a33;backdrop-filter:blur(5px)}
+.nav .brand{font:29px "Pirata One";color:var(--gold2);text-decoration:none;margin-right:auto;text-shadow:0 2px #000}
+.nav a:not(.brand){font:12px Cinzel;letter-spacing:2px;text-decoration:none;color:#dfcca2}
+.nav a:not(.brand):hover{color:#fff0b7}
+.audio{background:#0b0806;border:1px solid #8f692d;color:#edcf83;border-radius:2px;padding:9px 12px;font-weight:800}
+
+.hero{min-height:100svh;position:relative;overflow:hidden;background:
+ radial-gradient(circle at 75% 20%,#a4773b55 0 2px,transparent 3px),
+ radial-gradient(circle at 20% 25%,#d3b46c44 0 1px,transparent 2px),
+ linear-gradient(#020507aa,#06171d 65%,#020709);
+}
+.stars{position:absolute;inset:0;background-image:radial-gradient(#e4cb8d 1px,transparent 1px);background-size:140px 140px;opacity:.23}
+.moon{position:absolute;right:11%;top:13%;width:150px;height:150px;border-radius:50%;background:#e8d18f;box-shadow:0 0 90px #dcb96866;opacity:.9}
+.storm{position:absolute;left:-10%;right:-10%;top:22%;height:35%;background:linear-gradient(180deg,transparent,#10191d77,transparent);filter:blur(14px);transform:skewY(-3deg);animation:storm 10s ease-in-out infinite alternate}
+@keyframes storm{to{transform:translateX(7%) skewY(2deg);opacity:.55}}
+.heroCopy{position:relative;z-index:20;min-height:100svh;display:grid;place-items:center;text-align:center;padding:110px 20px 190px}
+.eyebrow{font:21px "IM Fell English SC";letter-spacing:5px;color:#d7bf88}
+.hero h1{font:900 clamp(60px,11vw,138px)/.78 Cinzel;margin:25px 0;color:#f0e0b8;letter-spacing:-3px;text-shadow:0 4px 0 #1b0b07,0 8px 0 #0a0503,0 22px 55px #000}
+.hero h1 span{color:#b1261a}
+.hero p{max-width:800px;margin:auto;font:26px "IM Fell English SC";color:#e9d9b2}
+.date{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:25px;font:800 14px Cinzel}
+.date span{padding:12px 16px;border:1px solid #aa7d35;background:#050708cc}
+.btn{display:inline-block;margin-top:27px;padding:16px 28px;background:linear-gradient(#a92b1e,#5b130e);border:2px solid #d5a64e;color:#ffe7a8;text-decoration:none;font:900 14px Cinzel;letter-spacing:2px;box-shadow:0 6px 0 #260704,0 18px 40px #0009;transition:.2s}
+.btn:hover{transform:translateY(-4px) scale(1.02)}
+.heroSea{position:absolute;bottom:-2px;left:-5%;width:110%;height:31%;background:linear-gradient(#0a3038,#03090c);clip-path:polygon(0 35%,6% 24%,12% 34%,19% 18%,26% 33%,34% 20%,42% 36%,50% 17%,59% 32%,67% 20%,76% 34%,84% 19%,92% 31%,100% 20%,100% 100%,0 100%);animation:water 3.7s ease-in-out infinite alternate}
+@keyframes water{to{transform:translateY(11px) scaleY(1.04)}}
+
+.ship{position:absolute;z-index:25;left:50%;bottom:11%;width:min(800px,94vw);height:370px;transform:translateX(-50%);animation:sail 4.5s ease-in-out infinite;filter:drop-shadow(0 35px 30px #000)}
+@keyframes sail{0%,100%{transform:translateX(-50%) rotate(-1deg)}50%{transform:translateX(-50%) translateY(-14px) rotate(1.4deg)}}
+.ship>*{position:absolute}
+.hull{left:5%;right:5%;bottom:10px;height:135px;background:linear-gradient(160deg,#6e3719,#21100a 70%);border:5px solid #a87937;clip-path:polygon(2% 0,98% 0,86% 78%,70% 100%,30% 100%,14% 78%);box-shadow:inset 0 -30px #120906}
+.hull:before{content:"";position:absolute;left:11%;right:11%;top:43%;height:4px;background:#b17c39;box-shadow:0 25px #5a2a15,0 50px #45200f}
+.deck{left:11%;right:11%;bottom:135px;height:40px;border:4px solid #b27d3a;background:repeating-linear-gradient(90deg,#70401f 0 42px,#8b5126 42px 49px)}
+.mast{left:50%;bottom:134px;width:15px;height:285px;background:#5a3218;border:2px solid #b98540;transform:translateX(-50%);z-index:5}
+.sail{position:absolute;left:12px;top:35px;width:310px;height:190px;background:linear-gradient(135deg,#171316,#09090b);border:4px solid #9c7038;clip-path:polygon(0 0,100% 15%,77% 90%,8% 100%);transform-origin:left top}
+.sail:after{content:"☠";position:absolute;left:42%;top:34%;font:58px serif;color:#b73728;text-shadow:2px 3px #000}
+.flag{position:absolute;top:-25px;left:7px;font-size:60px;transform-origin:left;animation:flag .8s ease-in-out infinite alternate}
+@keyframes flag{to{transform:skewY(-8deg) scaleX(1.08)}}
+.rope{left:8%;right:8%;bottom:112px;border-top:2px solid #c49a54;transform:rotate(-9deg);box-shadow:0 4px #000}
+.lantern{bottom:154px;font-size:34px;animation:lantern 1.4s ease-in-out infinite alternate}
+.lantern.l{left:9%}.lantern.r{right:9%}
+@keyframes lantern{to{transform:translateY(-5px);filter:drop-shadow(0 0 17px #ffc34e)}}
+.crew{bottom:151px;font-size:58px;z-index:8;transform-origin:bottom}
+.crew.one{left:30%;animation:crew1 2.5s ease-in-out infinite}.crew.two{right:29%;animation:crew2 2.8s ease-in-out infinite}
+@keyframes crew1{50%{transform:rotate(16deg) translateY(-7px)}}@keyframes crew2{50%{transform:rotate(-15deg) translateY(-8px)}}
+.blade{position:absolute;bottom:55px;font-size:43px}.crew.one .blade{left:40px;animation:blade1 2.5s infinite}.crew.two .blade{right:42px;animation:blade2 2.8s infinite}
+@keyframes blade1{50%{transform:rotate(70deg)}}@keyframes blade2{50%{transform:rotate(-70deg)}}
+.gulls{position:absolute;z-index:23;inset:0;pointer-events:none}.gull{position:absolute;font-size:28px;left:-10%;animation:fly 12s linear infinite}.g1{top:22%;animation-delay:-2s}.g2{top:34%;font-size:20px;animation-delay:-6s}.g3{top:15%;font-size:23px;animation-delay:-9s}
+@keyframes fly{to{left:115%;transform:translateY(-60px) rotate(-5deg)}}
+.spray{position:absolute;z-index:26;width:9px;height:9px;border-radius:50%;background:#e8ffff;box-shadow:0 0 10px #dfffff;animation:spray 1.35s ease-out infinite}.sp1{left:33%;bottom:17%}.sp2{left:65%;bottom:14%;animation-delay:-.45s}.sp3{left:72%;bottom:20%;animation-delay:-.9s}
+@keyframes spray{0%{transform:translate(0,0);opacity:0}20%{opacity:1}100%{transform:translate(45px,-110px);opacity:0}}
+.smoke{position:absolute;z-index:30;bottom:245px;left:52%;font-size:24px;animation:smoke 4s linear infinite}.smoke:nth-child(2){animation-delay:-1.3s}.smoke:nth-child(3){animation-delay:-2.5s}
+@keyframes smoke{from{transform:scale(.5);opacity:0}25%{opacity:.6}to{transform:translate(90px,-150px) scale(2.2);opacity:0}}
+
+.section{padding:105px 5vw}.dark{background:linear-gradient(#030a0d,#0a252d)}.wood{background:repeating-linear-gradient(7deg,#28160d 0 10px,#361f12 10px 16px,#21120b 16px 20px)}.paper{background:var(--paper);color:var(--ink)}
+.wrap{max-width:1180px;margin:auto}.title{text-align:center;font:900 clamp(34px,5vw,62px) Cinzel;margin:0 0 10px;text-shadow:0 4px #0005}.paper .title{text-shadow:none}.subtitle{text-align:center;font:21px "IM Fell English SC";max-width:760px;margin:0 auto 48px}
+.story{max-width:900px;margin:auto;text-align:center;font:24px/1.8 "IM Fell English SC"}.story strong{color:#c53625}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{padding:28px;background:linear-gradient(145deg,#1a0e09,#3a1f12);border:1px solid #9b6e32;box-shadow:0 15px 40px #0007;position:relative;transition:.25s}.card:hover{transform:translateY(-8px) rotate(-.4deg);border-color:#e0ae52}.card:after{content:"";position:absolute;inset:7px;border:1px solid #d1a34e22;pointer-events:none}.icon{font-size:43px}.card h3{font:900 22px Cinzel;margin:12px 0}.card p{line-height:1.7;color:#e8d8b8}.card b{color:#edc45f}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:45px}.time{padding:18px;background:#110805cc;border-top:3px solid #ad7d35}.time strong{display:block;font:900 24px Cinzel;color:#edc462}.time span{font-size:14px;color:#d8c8a8}
+.mapgrid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px}.map{position:relative;min-height:520px;border:9px solid #4d2b13;overflow:hidden;background:#d4b877;background-image:radial-gradient(circle at 20% 30%,#6d886833 0 9%,transparent 10%),radial-gradient(circle at 70% 70%,#6d886833 0 11%,transparent 12%),repeating-linear-gradient(25deg,transparent 0 70px,#614a2a22 71px 73px);box-shadow:0 18px 50px #0007}.map svg{position:absolute;inset:0;width:100%;height:100%}.route{fill:none;stroke:#8d271c;stroke-width:7;stroke-dasharray:17 13;animation:dash 1.8s linear infinite}@keyframes dash{to{stroke-dashoffset:-60}}.mapcard{background:#ead7a7;padding:32px;box-shadow:0 18px 45px #0004}.mapcard h3{font:900 30px Cinzel}.mapcard li{margin:17px 0;line-height:1.5}
+.rsvp{max-width:820px;margin:auto;background:linear-gradient(145deg,#1a0e09,#3a1f12);padding:36px;border:2px solid #a77a38;box-shadow:0 18px 50px #0008}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:15px}label{font-size:14px;font-weight:800}input,select,textarea{margin-top:7px;width:100%;padding:13px;background:#f1dfb4;border:1px solid #9c743a;color:#20140d;border-radius:2px;font:inherit}textarea{min-height:105px}.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:15px 0}.choices label{padding:15px;text-align:center;background:#110805;border:1px solid #76562d}.choices input{width:auto;margin:0 5px 0 0}.submit{width:100%;padding:16px;background:#90281b;color:#ffe8a9;border:2px solid #d7a84e;font:900 14px Cinzel;letter-spacing:1px}.status{min-height:25px;margin-top:14px}.small{font-size:12px;line-height:1.5;opacity:.7}
+.chest{text-align:center;margin-top:45px;font-size:90px;cursor:pointer;transition:.25s;filter:drop-shadow(0 15px 15px #000)}.chest:hover{transform:scale(1.08) rotate(-4deg)}#secret{display:none;max-width:620px;margin:10px auto;padding:18px;text-align:center;background:#100705;border:1px dashed #b48642}
+.coins{position:fixed;inset:0;pointer-events:none;z-index:500}.coin{position:absolute;font-size:25px;animation:coin 1.6s ease-out forwards}@keyframes coin{to{transform:translate(var(--x),var(--y)) rotate(720deg);opacity:0}}
+.toast{position:fixed;z-index:600;left:50%;bottom:25px;transform:translate(-50%,20px);opacity:0;background:#100705;border:1px solid #b88942;padding:13px 20px;transition:.25s;box-shadow:0 10px 30px #000}.toast.show{opacity:1;transform:translate(-50%,0)}
+footer{text-align:center;padding:75px 20px;background:#020506;font:25px "IM Fell English SC"}footer .sk{font-size:58px}
+@media(max-width:850px){.nav{padding:10px 14px;gap:10px}.nav a:not(.brand){display:none}.nav .brand{font-size:23px}.audio{font-size:10px}.hero h1{font-size:clamp(48px,14vw,78px)}.hero p{font-size:20px}.moon{width:95px;height:95px}.ship{width:98vw;height:300px;bottom:14%}.mast{height:225px}.sail{width:220px;height:135px}.hull{height:105px}.deck{bottom:105px}.crew{bottom:125px;font-size:46px}.blade{bottom:44px;font-size:34px}.lantern{bottom:130px;font-size:26px}.section{padding:75px 18px}.cards,.timeline,.mapgrid,.formgrid,.choices{grid-template-columns:1fr}.map{min-height:430px}}
 </style>
 </head>
 <body>
-<nav class="topbar">
-<a class="logo" href="#top">☠️ MERERÖÖVLID</a>
+<nav class="nav">
+<a class="brand" href="#top">☠️ MERERÖÖVLID</a>
 <a href="#lugu">LUGU</a><a href="#pardal">PARDAL</a><a href="#kaart">AARDEKAART</a><a href="#rsvp">RSVP</a>
-<button class="sound" id="sound">🔊 HELI OFF</button>
+<button class="audio" id="audio">🔊 HELI OFF</button>
 </nav>
 
 <header class="hero" id="top">
-<div class="stars"></div><div class="moon"></div>
-<div class="hero-copy">
-<div class="eyebrow">☠️ KAPTENI SALAJANE TEADAANNE ☠️</div>
-<h1>MERERÖÖVLID<br>PARDAL!</h1>
-<p>Üks öö. Üks laev. Üks sünnipäev.<br>Ja terve meeskond kahtlaseid mereröövleid.</p>
+<div class="stars"></div><div class="moon"></div><div class="storm"></div>
+<div class="gulls"><span class="gull g1">🕊️</span><span class="gull g2">🕊️</span><span class="gull g3">🕊️</span></div>
+<div class="heroCopy"><div>
+<div class="eyebrow">☠️ KAPTENI MUSTA TEADAANNE ☠️</div>
+<h1>MERERÖÖVLID<br><span>PARDAL!</span></h1>
+<p>Üks öö. Üks laev. Üks sünnipäev.<br>Ei mingeid pehmeid piraate.</p>
 <div class="date"><span>⚓ LAUPÄEV · 17. OKTOOBER 2026</span><span>🕖 19:00 — 02:00</span></div>
-<br><a class="btn" href="#rsvp">ANNA KAPTENILE TEADA →</a>
+<a class="btn" href="#rsvp">☠️ TÕSTA ANKUR — TULE PARDAL</a>
+</div></div>
+<div class="ship">
+<div class="mast"><div class="sail"></div><span class="flag">🏴‍☠️</span></div>
+<div class="deck"></div><div class="hull"></div><div class="rope"></div>
+<div class="lantern l">🏮</div><div class="lantern r">🏮</div>
+<div class="crew one">🏴‍☠️<span class="blade">⚔️</span></div><div class="crew two">🏴‍☠️<span class="blade">🗡️</span></div>
+<div class="smoke">💨</div><div class="smoke">💨</div><div class="smoke">💨</div>
 </div>
-<div class="ship" aria-hidden="true"><div class="mast"><span class="flag">🏴‍☠️</span></div><div class="deck"></div><div class="hull"></div><div class="rope"></div><div class="lantern a">🏮</div><div class="lantern b">🏮</div></div>
-<div class="ocean"></div>
+<div class="spray sp1"></div><div class="spray sp2"></div><div class="spray sp3"></div>
+<div class="heroSea"></div>
 </header>
 
 <section class="section dark" id="lugu"><div class="wrap">
-<h2 class="title">PIRAATIDE LUGU</h2><p class="subtitle">Kapteni päevikust leitud sissekanne.</p>
-<div class="story"><p>Legend räägib, et kord aastas koguneb Pärnumaa vetes üks eriti kahtlane mereröövlite jõuk. Nad ei otsi kulda. Nad otsivad <strong>head seltskonda, valju muusikat ja põhjust rummipudelit avada.</strong></p>
-<p>Sel aastal on kaptenil sünnipäev. Kell <strong>19:00</strong> tõstetakse ankur. Kes õigeks ajaks pardale ei jõua, jääb kaldale.</p>
-<p>Seega: ära tule lihtsalt külalisena. <strong>Tule meeskonnaliikmena.</strong></p></div>
-<div class="timeline"><div class="time"><strong>18:30+</strong><span>Kogunemine ja piraadiks muutumine</span></div><div class="time"><strong>19:00</strong><span>Laev väljub</span></div><div class="time"><strong>ÕHTUL</strong><span>DJ, rumm ja mereröövlielu</span></div><div class="time"><strong>02:00</strong><span>Kapten lõpetab retke</span></div></div>
+<h2 class="title">KAPTENI LUGU</h2><p class="subtitle">See pole tavaline sünnipäevakutse.</p>
+<div class="story">
+<p>Öösel, mil kuu ripub madalal mere kohal, koguneb Pärnumaa rannikul üks jõuk, kelle nime ei öelda liiga kõvasti. Nad on mereröövlid.</p>
+<p>Sel õhtul ootab neid laev, rumm, muusika ja kapteni sünnipäev. Kell <strong>19:00</strong> läheb uks kinni, ankur tõuseb ja kaldale jäävad need, kes õigeks ajaks kohale ei jõudnud.</p>
+<p><strong>Fake piraadid pole lubatud.</strong> Kui tuled, siis tule nagu oleksid just otse tormist laevale roninud.</p>
+</div>
+<div class="timeline"><div class="time"><strong>18:30+</strong><span>Kogunemine. Riietu. Relvasta. Valmista end ette.</span></div><div class="time"><strong>19:00</strong><span>ANKUR ÜLES. Laev väljub.</span></div><div class="time"><strong>ÕHTUL</strong><span>DJ, rumm, tants, saun ja kaos.</span></div><div class="time"><strong>02:00</strong><span>Kapteni korraldusel lõpeb retk.</span></div></div>
 </div></section>
 
 <section class="section wood" id="pardal"><div class="wrap">
-<h2 class="title">KAPTENI KORRALDUSED</h2><p class="subtitle">Kõik, mida üks korralik mereröövel peab teadma.</p>
+<h2 class="title">KAPTENI KORRALDUSED</h2><p class="subtitle">Kui sa tuled, siis pea mereseadustest kinni.</p>
 <div class="cards">
-<article class="card"><div class="icon">🏴‍☠️</div><h3>DRESSCODE</h3><p><b>PÄRIS MERERÖÖVEL.</b> Fake piraadid pole lubatud. Mõõk, pearätt, mantel, saapad, kuld, armid — mida rohkem iseloomu, seda parem.</p></article>
-<article class="card"><div class="icon">🥃</div><h3>RUMM</h3><p>Laeva kütust jagub kõigile. Kapteni käsk on lihtne: tähista, tantsi ja ära oma meeskonda ära kaota.</p></article>
-<article class="card"><div class="icon">🎧</div><h3>DJ TULEB</h3><p>Õhtul võtab DJ laeva juhtimise üle. Tantsupõrand hakkab liikuma isegi siis, kui meri ei liiguta.</p></article>
-<article class="card"><div class="icon">🏊</div><h3>UJUKAD</h3><p>Võta ujukad kaasa — sest kunagi ei tea, kelle peame üle parda viskama.</p></article>
-<article class="card"><div class="icon">🔥</div><h3>SAUN</h3><p>Saun on olemas. Pärast mereröövlielu on hea end seal soojaks saada ja tagasi inimeste sekka tulla.</p></article>
-<article class="card"><div class="icon">🛏️</div><h3>MAJUTUS</h3><p>Kiirematel on võimalik majutust saada. Vajad kohta? <b>Küsi kaptenilt otse.</b></p></article>
+<article class="card"><div class="icon">🏴‍☠️</div><h3>MERERÖÖVEL VÕI MITTE MIDAGI</h3><p><b>Fake piraadid pole lubatud.</b> Mõõk, mantel, pearätt, saapad, kuld, armid — näita, et oled meeskonnast.</p></article>
+<article class="card"><div class="icon">🥃</div><h3>RUMM</h3><p>Laeva kütust jagub kõigile. Õhtu on pikk. Kapten loodab, et meeskond peab vastu.</p></article>
+<article class="card"><div class="icon">🎧</div><h3>DJ VÕTAB TEKI ÜLE</h3><p>Õhtul tuleb DJ ja paneb laeva kõikuma. Tantsupõrand on ainus koht, kus mõõgad tuleb korraks kõrvale panna.</p></article>
+<article class="card"><div class="icon">🏊</div><h3>UJUKAD</h3><p>Võta ujukad. Kunagi ei tea, kelle peame üle parda viskama.</p></article>
+<article class="card"><div class="icon">🔥</div><h3>SAUN</h3><p>Kui meri ja rumm liiga jahedaks jätavad, saab saunas end uuesti inimlikuks kütta.</p></article>
+<article class="card"><div class="icon">🛏️</div><h3>MAJUTUS</h3><p>Kiirematel on võimalik majutust saada. <b>Küsi kaptenilt otse.</b></p></article>
 </div>
 </div></section>
 
 <section class="section paper" id="kaart"><div class="wrap">
-<h2 class="title">AARDEKAART</h2><p class="subtitle">Jälgi punast teed. Aare ootab Siimu tee 23 juures.</p>
-<div class="mapbox"><div class="map">
-<div class="compass">✥</div>
-<svg class="route" viewBox="0 0 800 500" preserveAspectRatio="none">
-<path d="M90 410 C160 360 170 280 260 315 S390 410 465 335 S560 195 690 105" fill="none" stroke="#8d271b" stroke-width="7" stroke-dasharray="15 12"/>
-<text x="55" y="455" font-size="24" fill="#24170e">PÄRNU</text><text x="585" y="80" font-size="22" fill="#24170e">SIIMU TEE 23</text>
-<text x="70" y="400" class="pin">⚓</text><text x="660" y="115" class="pin">☠️</text>
-<text x="315" y="250" font-size="60">⛵</text>
-</svg></div>
-<div class="mapcard"><h3>⚓ KAPTENI SADAM</h3><p><b>Siimu tee 23<br>Laadi küla, Pärnumaa</b></p><ol><li>Ole kohal enne <b>19:00</b>.</li><li>Leia kapten ja tõesta, et oled päriselt piraat.</li><li><b>19:00 väljub laev.</b> Hilinejad jäävad kaldale.</li><li>Majutuse soovist räägi kapteniga otse.</li></ol>
-<a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Siimu%20tee%2023%2C%20Laadi%20küla%2C%20Pärnumaa">AVA PÄRIS KAART</a></div></div>
+<h2 class="title">KAPTENI AARDEKAART</h2><p class="subtitle">Punane rada viib sind otse salajase sadamani.</p>
+<div class="mapgrid"><div class="map" id="map"><svg viewBox="0 0 800 500" preserveAspectRatio="none">
+<path class="route" d="M75 415 C150 360 180 280 270 315 S390 410 475 335 S565 195 700 105"/>
+<circle cx="75" cy="415" r="10" fill="#8d271c"/><circle cx="700" cy="105" r="10" fill="#8d271c"/>
+<text x="45" y="460" font-size="24" fill="#24170e">PÄRNU</text><text x="570" y="80" font-size="21" fill="#24170e">SIIMU TEE 23</text>
+<text x="45" y="395" font-size="43">⚓</text><text x="658" y="122" font-size="40">☠️</text><text x="315" y="250" font-size="62">⛵</text></svg></div>
+<div class="mapcard"><h3>⚓ SALAJANE SADAM</h3><p><b>Siimu tee 23<br>Laadi küla, Pärnumaa</b></p><ol><li>Saabu enne <b>19:00</b>.</li><li>Leia kapten.</li><li><b>19:00 — ankur üles.</b></li><li>Majutuse vajadusest räägi kapteniga.</li></ol><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Siimu%20tee%2023%2C%20Laadi%20küla%2C%20Pärnumaa">AVA KAART</a></div></div>
 </div></section>
 
 <section class="section dark" id="rsvp"><div class="wrap">
-<h2 class="title">KAS ASTUD PARDALE?</h2><p class="subtitle">Kapten vajab meeskonna nimekirja.</p>
-<div class="rsvp"><form id="form">
-<div class="formgrid"><div><label>Nimi<input name="name" required placeholder="Sinu piraadinimi"></label></div><div><label>Inimeste arv<select name="count"><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></label></div></div>
-<div class="choices"><label><input type="radio" name="answer" value="Tulen" required> ☠️ TULEN</label><label><input type="radio" name="answer" value="Ei saa"> ⚔️ EI SAA</label><label><input type="radio" name="answer" value="Võib-olla"> 🏴 VÕIB-OLLA</label></div>
-<label>Sõnum kaptenile<textarea name="note" placeholder="Majutus, erisoov või muu salajane info..."></textarea></label>
-<button class="submit" type="submit">⚓ SAADA KAPTENILE</button>
-<p class="small">RSVP on valmis ühendamiseks vormiteenusega. Seni valmistab see ette e-kirja, mille saad kaptenile saata.</p>
-</form><div id="answer" class="small"></div></div>
-<div class="treasure"><div class="chest" id="chest">🗝️</div><div id="secret">☠️ Salakambri salasõna on <b>RUMM</b>. Kapten tunnustab sinu uudishimu.</div></div>
+<h2 class="title">ANNA KAPTENILE TEADA</h2><p class="subtitle">Kas oled valmis pardale astuma?</p>
+<div class="rsvp">
+<form id="form" action="https://formsubmit.co/ajax/jxrandmae@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="🏴‍☠️ MERERÖÖVLID PARDAL — uus RSVP">
+<input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="true"><input type="text" name="_honey" style="display:none">
+<div class="formgrid"><label>Mereröövli nimi<input name="name" required placeholder="Kapten Musthabe"></label><label>Sinu e-post<input type="email" name="email" required placeholder="sina@email.ee"></label></div>
+<label style="display:block;margin-top:15px">Mitu inimest?<select name="count"><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></label>
+<div class="choices"><label><input type="radio" name="answer" value="JAH, TULEN!" required> ☠️ TULEN</label><label><input type="radio" name="answer" value="EI SAA"> ⚔️ EI SAA</label><label><input type="radio" name="answer" value="VÕIB-OLLA"> 🏴 VÕIB-OLLA</label></div>
+<label>Sõnum kaptenile<textarea name="note" placeholder="Majutus, erisoov või salajane info..."></textarea></label>
+<button class="submit" type="submit">☠️ SAADA TEADE</button><div class="status" id="status"></div>
+<p class="small">RSVP saadetakse FormSubmiti kaudu aadressile jxrandmae@gmail.com. Esimesel kasutamisel tuleb e-posti aadress FormSubmiti kinnituskirja kaudu aktiveerida.</p>
+</form></div>
+<div class="chest" id="chest">💰🧰</div><div id="secret">☠️ <b>AARDELAEGAS AVATUD.</b><br>Salasõna: RUMM. Sa oled nüüd ametlikult meeskonnast.</div>
 </div></section>
-
 <footer><div class="sk">☠️</div>HALVIM VÕIMALIK PLAAN.<br>PARIM VÕIMALIK ÖÖ.<br><small>17.10.2026 · 19:00–02:00</small></footer>
-<script>
-/* RSVP seadistus:
-   Kui tahad automaatset veebivormi, pane siia näiteks Formspree endpoint.
-   Näide: const RSVP_ENDPOINT="https://formspree.io/f/xxxxxx";
-*/
-const RSVP_ENDPOINT="";
-const form=document.querySelector("#form"),answer=document.querySelector("#answer");
-form.addEventListener("submit",async e=>{
- e.preventDefault(); const d=Object.fromEntries(new FormData(form));
- localStorage.setItem("pirate_rsvp_"+Date.now(),JSON.stringify(d));
- if(RSVP_ENDPOINT){
-  try{let r=await fetch(RSVP_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(d)});if(!r.ok)throw 0;answer.innerHTML="☠️ <b>Teade on kaptenini jõudnud!</b>";form.reset();return}catch(_){}
- }
- const subject=encodeURIComponent("🏴‍☠️ Piraadipidu RSVP – "+d.name);
- const body=encodeURIComponent(`Piraadipidu RSVP\n\nNimi: ${d.name}\nInimesi: ${d.count}\nVastus: ${d.answer}\nSõnum: ${d.note||"-"}\n\n17.10.2026 · 19:00–02:00\nSiimu tee 23, Laadi küla, Pärnumaa`);
- answer.innerHTML=`☠️ Vastus on valmis. <a href="mailto:?subject=${subject}&body=${body}">Klõpsa siia, et see e-postiga kaptenile saata.</a>`;
-});
-document.querySelector("#chest").onclick=()=>document.querySelector("#secret").style.display="block";
+<div class="coins" id="coins"></div><div class="toast" id="toast"></div>
 
-/* Brauseri enda mereline ambient-heli — välist muusikafaili pole vaja. */
+<script>
+const hero=document.querySelector(".hero");
+hero.addEventListener("pointermove",e=>{const r=hero.getBoundingClientRect(),x=e.clientX/r.width-.5,y=e.clientY/r.height-.5;document.querySelector(".stars").style.transform=`translate(${x*14}px,${y*10}px)`;document.querySelector(".moon").style.transform=`translate(${x*-22}px,${y*-15}px)`});
+hero.addEventListener("pointerleave",()=>{document.querySelector(".stars").style.transform="";document.querySelector(".moon").style.transform=""});
+
+const chest=document.querySelector("#chest"),secret=document.querySelector("#secret"),coins=document.querySelector("#coins"),toast=document.querySelector("#toast");
+chest.onclick=()=>{secret.style.display="block";for(let i=0;i<20;i++){let c=document.createElement("span");c.className="coin";c.textContent="🪙";c.style.left="50%";c.style.top="75%";c.style.setProperty("--x",`${(Math.random()-.5)*500}px`);c.style.setProperty("--y",`${-Math.random()*300-30}px`);coins.appendChild(c);setTimeout(()=>c.remove(),1700)}toast.textContent="💰 AARE LEITUD!";toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),2200)};
+
+const form=document.querySelector("#form"),status=document.querySelector("#status");
+form.onsubmit=async e=>{e.preventDefault();status.textContent="⚓ Saadan kaptenile...";
+try{const r=await fetch(form.action,{method:"POST",body:new FormData(form),headers:{Accept:"application/json"}});const d=await r.json();if(!r.ok||d.success===false)throw 0;status.innerHTML="☠️ <b>Teade on kaptenini jõudnud!</b>";form.reset()}catch(_){status.textContent="⚠️ Saatmine ebaõnnestus. Proovi uuesti."}};
+
 let ctx,master,playing=false,timer;
-document.querySelector("#sound").onclick=()=>{
- if(playing){playing=false;clearTimeout(timer);document.querySelector("#sound").textContent="🔊 HELI OFF";return}
- ctx=new (window.AudioContext||window.webkitAudioContext)();master=ctx.createGain();master.gain.value=.035;master.connect(ctx.destination);
- const buf=ctx.createBuffer(1,ctx.sampleRate*2,ctx.sampleRate),a=buf.getChannelData(0);for(let i=0;i<a.length;i++)a[i]=(Math.random()*2-1)*.25;
- const n=ctx.createBufferSource();n.buffer=buf;n.loop=true;const f=ctx.createBiquadFilter();f.type="lowpass";f.frequency.value=700;n.connect(f).connect(master);n.start();
- const notes=[147,175,196,220,196,175,147,131];let i=0;
- function note(){if(!playing)return;let o=ctx.createOscillator(),g=ctx.createGain();o.type="triangle";o.frequency.value=notes[i++%notes.length];g.gain.setValueAtTime(.001,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.09,ctx.currentTime+.03);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.5);o.connect(g).connect(master);o.start();o.stop(ctx.currentTime+.55);timer=setTimeout(note,520)}
- playing=true;note();document.querySelector("#sound").textContent="🔊 HELI ON";
-};
+document.querySelector("#audio").onclick=()=>{const b=document.querySelector("#audio");if(playing){playing=false;clearTimeout(timer);b.textContent="🔊 HELI OFF";master.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+.5);return}
+ctx=new(window.AudioContext||window.webkitAudioContext)();master=ctx.createGain();master.gain.value=.035;master.connect(ctx.destination);
+const buf=ctx.createBuffer(1,ctx.sampleRate*2,ctx.sampleRate),a=buf.getChannelData(0);for(let i=0;i<a.length;i++)a[i]=(Math.random()*2-1)*.24;
+const n=ctx.createBufferSource(),f=ctx.createBiquadFilter();n.buffer=buf;n.loop=true;f.type="lowpass";f.frequency.value=620;n.connect(f).connect(master);n.start();
+const notes=[147,175,196,220,196,175,147,131];let i=0;function play(){if(!playing)return;let o=ctx.createOscillator(),g=ctx.createGain();o.type="triangle";o.frequency.value=notes[i++%notes.length];g.gain.setValueAtTime(.001,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.09,ctx.currentTime+.02);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.55);o.connect(g).connect(master);o.start();o.stop(ctx.currentTime+.6);timer=setTimeout(play,560)}playing=true;play();b.textContent="🔊 HELI ON"};
 </script>
-</body></html>
+</body>
+</html>
