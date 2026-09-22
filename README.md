@@ -1,13 +1,29 @@
-# 🏴‍☠️ Mereröövlid Pardal
+# 🏴‍☠️ Mereröövlid Pardal — Premium Red/Black
 
-See on päris HTML/CSS/JavaScript veebileht, mitte üksainus pilt.
+See on päris responsive veebileht, mille visuaalne kiht kasutab eraldi genereeritud pildifailidest:
+- `assets/hero-ship.png` — filmi-stiilis piraadilaeva hero
+- `assets/treasure-map.png` — tume detailne aardekaart
+- `assets/treasure-chest.png` — detailne aardelaegas ja kuld
 
-Failid:
-- index.html — kogu interaktiivne veebileht
+Tekstid, RSVP, animatsioonid ja interaktiivsed osad on HTML/CSS/JS, mitte pildile kirjutatud.
 
-Kujundus sisaldab CSS/SVG abil animeeritud laeva, merd, tähistaevast, aardekaarti, ajajoont, RSVP vormi ja piraaditeemalisi kaarte.
+## Failistruktuur
+```
+index.html
+styles.css
+script.js
+assets/
+  hero-ship.png
+  treasure-map.png
+  treasure-chest.png
+DESIGN-REFERENCE.png
+README.md
+```
+
+`DESIGN-REFERENCE.png` on visuaalne stiilireferents, mitte lehe tekstikiht.
 
 ## GitHub Pages
-Repo -> Settings -> Pages -> Deploy from a branch -> main -> /(root) -> Save.
+Repo -> Settings -> Pages -> Deploy from a branch -> `main` -> `/(root)` -> Save.
 
-Märkus: RSVP automaatseks kogumiseks lisa index.html algusesse oma Formspree vms endpoint `RSVP_ENDPOINT` väärtuseks.
+## RSVP
+Vorm kasutab FormSubmiti ja saadab vastused aadressile `jxrandmae@gmail.com`. Esimesel kasutamisel tuleb aadress FormSubmiti kinnituskirja kaudu aktiveerida.
