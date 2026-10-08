@@ -10,15 +10,11 @@ chest?.addEventListener("click",()=>{
  for(let i=0;i<24;i++){const c=document.createElement("span");c.className="coin";c.textContent="🪙";c.style.left="24%";c.style.top="70%";c.style.setProperty("--x",`${(Math.random()-.5)*520}px`);c.style.setProperty("--y",`${-Math.random()*330-40}px`);document.body.appendChild(c);setTimeout(()=>c.remove(),1800)}
  toast.textContent="💰 AARDE LEITUD";toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),2200);
 });
-let ctx,master,on=false,timer;
+let audio,on=false;
 document.querySelector("#sound")?.addEventListener("click",()=>{
  const b=document.querySelector("#sound");
- if(on){on=false;clearTimeout(timer);b.textContent="🔊 HELI OFF";master.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+.5);return}
- ctx=new(window.AudioContext||window.webkitAudioContext)();master=ctx.createGain();master.gain.value=.03;master.connect(ctx.destination);
- const buf=ctx.createBuffer(1,ctx.sampleRate*2,ctx.sampleRate),a=buf.getChannelData(0);for(let i=0;i<a.length;i++)a[i]=(Math.random()*2-1)*.2;
- const n=ctx.createBufferSource(),f=ctx.createBiquadFilter();n.buffer=buf;n.loop=true;f.type="lowpass";f.frequency.value=580;n.connect(f).connect(master);n.start();
- const notes=[147,175,196,220,196,175,147,131];let i=0;
- function play(){if(!on)return;let o=ctx.createOscillator(),g=ctx.createGain();o.type="triangle";o.frequency.value=notes[i++%notes.length];g.gain.setValueAtTime(.001,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.075,ctx.currentTime+.02);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.55);o.connect(g).connect(master);o.start();o.stop(ctx.currentTime+.6);timer=setTimeout(play,560)}
- on=true;play();b.textContent="🔊 HELI ON";
+ if(on){on=false;audio.pause();b.textContent="\u{1F50A} HELI OFF";return}
+ if(!audio){audio=new Audio("pirate-theme.mp3");audio.loop=true;audio.volume=.7}
+ on=true;audio.play();b.textContent="\u{1F50A} HELI ON";
 });
 document.querySelector("#mapFrame")?.addEventListener("click",()=>{document.querySelector(".routeOverlay").style.animationDuration=".45s";setTimeout(()=>document.querySelector(".routeOverlay").style.animationDuration="1.4s",1400)});
