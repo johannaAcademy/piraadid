@@ -10,11 +10,13 @@ chest?.addEventListener("click",()=>{
  for(let i=0;i<24;i++){const c=document.createElement("span");c.className="coin";c.textContent="🪙";c.style.left="24%";c.style.top="70%";c.style.setProperty("--x",`${(Math.random()-.5)*520}px`);c.style.setProperty("--y",`${-Math.random()*330-40}px`);document.body.appendChild(c);setTimeout(()=>c.remove(),1800)}
  toast.textContent="💰 AARDE LEITUD";toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),2200);
 });
-let audio,on=false;
-document.querySelector("#sound")?.addEventListener("click",()=>{
- const b=document.querySelector("#sound");
- if(on){on=false;audio.pause();b.textContent="\u{1F50A} HELI OFF";return}
- if(!audio){audio=new Audio("pirate-theme.mp3");audio.loop=true;audio.volume=.7}
- on=true;audio.play();b.textContent="\u{1F50A} HELI ON";
+const soundBtn=document.querySelector("#sound");
+const audio=new Audio("pirate-theme.mp3");audio.loop=true;audio.volume=.7;let on=true;
+const setBtn=()=>{if(soundBtn)soundBtn.textContent=on?"\u{1F50A} HELI ON":"\u{1F507} HELI OFF"};
+const startMusic=()=>{audio.play().then(()=>{on=true;setBtn()}).catch(()=>{on=true;setBtn();const kick=()=>{audio.play().then(()=>setBtn()).catch(()=>{});document.removeEventListener("pointerdown",kick)};document.addEventListener("pointerdown",kick)})};
+startMusic();
+soundBtn?.addEventListener("click",()=>{
+ if(on){on=false;audio.pause()}else{on=true;audio.play().catch(()=>{})}
+ setBtn();
 });
 document.querySelector("#mapFrame")?.addEventListener("click",()=>{document.querySelector(".routeOverlay").style.animationDuration=".45s";setTimeout(()=>document.querySelector(".routeOverlay").style.animationDuration="1.4s",1400)});
