@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="et">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050506"><meta name="description" content="Aardejaht — kaeva liiva sisse ja leia kapteni aare enne, kui labidad otsa saavad.">
+<meta property="og:title" content="AARDEJAHT ☠️"><meta property="og:description" content="Leia kapteni aare!"><meta property="og:type" content="website">
+<title>Aardejaht ☠️ Mereröövlid Pardal</title>
+<style>
+:root{--bg:#050506;--panel:#101014;--sand:#c9a35c;--sand2:#a8823f;--gold:#e8b64c;--red:#b3271e;--ink:#f2ead8;--mut:#9a917e}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:radial-gradient(1200px 600px at 50% -10%,#1a1208 0%,var(--bg) 60%);color:var(--ink);font-family:Georgia,'Times New Roman',serif;min-height:100dvh;display:flex;flex-direction:column}
+nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px;border-bottom:1px solid #2a2118;background:rgba(5,5,6,.85);position:sticky;top:0;z-index:5}
+nav .brand{color:var(--gold);text-decoration:none;font-weight:700;letter-spacing:2px;font-size:14px}
+nav a.back{color:var(--mut);text-decoration:none;font-size:13px;letter-spacing:1px;border:1px solid #3a2f1e;padding:8px 12px;border-radius:8px}
+main{flex:1;display:flex;flex-direction:column;align-items:center;padding:20px 16px 40px;max-width:520px;width:100%;margin:0 auto}
+h1{font-size:clamp(26px,7vw,38px);letter-spacing:3px;color:var(--gold);text-align:center;text-shadow:0 2px 12px rgba(232,182,76,.25)}
+.sub{color:var(--mut);text-align:center;margin:8px 0 18px;font-size:15px;line-height:1.5}
+.hud{display:flex;gap:10px;width:100%;margin-bottom:16px}
+.hud div{flex:1;background:var(--panel);border:1px solid #2a2118;border-radius:12px;padding:10px;text-align:center}
+.hud b{display:block;font-size:22px;color:var(--gold)}
+.hud span{font-size:11px;letter-spacing:1px;color:var(--mut)}
+.board{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;width:100%;max-width:420px}
+.tile{aspect-ratio:1;border:none;border-radius:12px;background:linear-gradient(160deg,var(--sand),var(--sand2));font-size:clamp(20px,6vw,30px);cursor:pointer;box-shadow:inset 0 -4px 0 rgba(0,0,0,.25);transition:transform .08s;user-select:none;touch-action:manipulation}
+.tile:active{transform:scale(.93)}
+.tile.dug{background:#3a2c17;box-shadow:inset 0 3px 8px rgba(0,0,0,.6);cursor:default}
+.tile.win{background:radial-gradient(circle,#f7d774,#c9932b);animation:pop .5s}
+.tile.lose{background:#2a1414}
+@keyframes pop{0%{transform:scale(.6)}60%{transform:scale(1.15)}100%{transform:scale(1)}}
+.msg{margin-top:18px;min-height:56px;text-align:center;font-size:16px;line-height:1.5}
+.msg b{color:var(--gold)}
+.btn{margin-top:14px;background:var(--red);color:var(--ink);border:none;border-radius:12px;padding:14px 28px;font-size:15px;letter-spacing:2px;font-family:inherit;font-weight:700;cursor:pointer;box-shadow:0 4px 0 #6e130d}
+.btn:active{transform:translateY(3px);box-shadow:none}
+.hint{margin-top:16px;color:var(--mut);font-size:13px;text-align:center;line-height:1.6}
+footer{text-align:center;color:var(--mut);font-size:12px;padding:18px;letter-spacing:2px;border-top:1px solid #2a2118}
+</style>
+</head>
+<body>
+<nav>
+<a class="brand" href="index.html">☠️ MERERÖÖVLID</a>
+<a class="back" href="index.html">← TAGASI PEALEHELE</a>
+</nav>
+<main>
+<h1>AARDEJAHT</h1>
+<p class="sub">Kapten on aarde liiva sisse mattunud.<br>Kaeva õigesse kohta — aga labidaid on vähe!</p>
+<div class="hud">
+<div><b id="digs">8</b><span>⛏️ LABIDAID</span></div>
+<div><b id="found">0</b><span>💰 AAREID</span></div>
+<div><b id="streak">0</b><span>🔥 SEERIA</span></div>
+</div>
+<div class="board" id="board"></div>
+<div class="msg" id="msg">Vali liivalapp ja kaiva! 🏴‍☠️</div>
+<button class="btn" id="again" style="display:none">☠️ UUS MÄNG</button>
+<p class="hint">Vihje: 🧭 näitab, kui kaugel aare on.<br>🔥 = väga lähedal · 🌊 = kaugel · 🦀 = täiesti vale koht.</p>
+</main>
+<footer>17.10.2026 · SIIMU TEE 23 · ☠️</footer>
+<script>
+const SIZE=5,DIGS=8;
+let board,treasure,digsLeft,found,streak,over;
+const boardEl=document.getElementById('board'),msgEl=document.getElementById('msg'),
+digsEl=document.getElementById('digs'),foundEl=document.getElementById('found'),
+streakEl=document.getElementById('streak'),againBtn=document.getElementById('again');
+function init(){
+  treasure=Math.floor(Math.random()*SIZE*SIZE);
+  digsLeft=DIGS;over=false;
+  boardEl.innerHTML='';
+  for(let i=0;i<SIZE*SIZE;i++){
+    const t=document.createElement('button');
+    t.className='tile';t.setAttribute('aria-label','Kaiva siin');
+    t.addEventListener('click',()=>dig(i,t));
+    boardEl.appendChild(t);
+  }
+  update();
+}
+function update(){digsEl.textContent=digsLeft;foundEl.textContent=found;streakEl.textContent=streak;}
+function dist(a,b){const ar=Math.floor(a/SIZE),ac=a%SIZE,br=Math.floor(b/SIZE),bc=b%SIZE;return Math.max(Math.abs(ar-br),Math.abs(ac-bc));}
+function dig(i,t){
+  if(over||t.classList.contains('dug'))return;
+  digsLeft--;t.classList.add('dug');
+  if(i===treasure){
+    t.classList.add('win');t.textContent='💰';
+    found++;streak++;over=true;
+    msgEl.innerHTML='<b>AARE LEITUD!</b> 🏆 Kapten on uhke. Mängi uuesti ja kogu seeriat!';
+    againBtn.style.display='inline-block';
+  }else{
+    const d=dist(i,treasure);
+    t.textContent=d<=1?'🔥':d<=2?'🧭':'🦀';
+    if(digsLeft<=0){
+      over=true;streak=0;
+      boardEl.children[treasure].classList.add('lose');
+      boardEl.children[treasure].textContent='💰';
+      msgEl.innerHTML='<b>LABIDAD OTSA!</b> ☠️ Aare jäi liiva alla... Proovi uuesti!';
+      againBtn.style.display='inline-block';
+    }else{
+      msgEl.innerHTML=d<=1?'<b>🔥 KUUM!</b> Aare on kohe siin kõrval!':d<=2?'🧭 Soe... aare on paar sammu kaugusel.':'🦀 Külm. Siin kasvab ainult krabid.';
+    }
+  }
+  update();
+}
+againBtn.addEventListener('click',()=>{againBtn.style.display='none';msgEl.textContent='Vali liivalapp ja kaiva! 🏴‍☠️';init();});
+found=0;streak=0;init();
+</script>
+</body>
+</html>
