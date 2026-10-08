@@ -20,3 +20,13 @@ soundBtn?.addEventListener("click",()=>{
  setBtn();
 });
 document.querySelector("#mapFrame")?.addEventListener("click",()=>{document.querySelector(".routeOverlay").style.animationDuration=".45s";setTimeout(()=>document.querySelector(".routeOverlay").style.animationDuration="1.4s",1400)});
+
+const menuBtn=document.querySelector("#menuBtn"),navLinks=document.querySelector("#navLinks");
+menuBtn?.addEventListener("click",()=>{const o=navLinks.classList.toggle("open");menuBtn.textContent=o?"\u2715":"\u2630";menuBtn.setAttribute("aria-expanded",o)});
+navLinks?.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navLinks.classList.remove("open");menuBtn.textContent="\u2630";menuBtn.setAttribute("aria-expanded",false)}));
+const addToCalendar=()=>{
+ const ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//piraadid//ET","BEGIN:VEVENT","UID:piraadid-20261017@piraadid","DTSTAMP:20261008T000000Z","DTSTART:20261017T150000Z","DTEND:20261017T210000Z","SUMMARY:☠️ Mereröövlid pardal — Johanna sünnipäev","LOCATION:Vanalinn (täpne koht selgub)","DESCRIPTION:Dresscode: päris mereröövel! "+location.href.split("#")[0],"END:VEVENT","END:VCALENDAR"].join("\r\n");
+ const url=URL.createObjectURL(new Blob([ics],{type:"text/calendar;charset=utf-8"}));
+ const a=document.createElement("a");a.href=url;a.download="merer\u00f6\u00f6vlid-pardal.ics";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),5000);
+};
+document.querySelectorAll(".calBtn").forEach(b=>b.addEventListener("click",addToCalendar));
