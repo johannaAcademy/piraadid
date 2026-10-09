@@ -2,9 +2,9 @@ const teamData = {
   tiim1: {
     name: "TIIM 1",
     start: {
-      title: "PIKK HERMANN",
-      address: "Lossi plats 1a, Tallinn",
-      note: "See on teie alguspunkt. Esimene mõistatus juhatab teid Taani Kuninga aeda."
+      title: "KAARDIL MÄÄRATUD ALGUSPUNKT",
+      address: "Vaata täpset alguspunkti Google Mapsi marsruudilt.",
+      note: "Alustage kaardil näidatud kohast. Esimene mõistatus juhatab teid Taani Kuninga aeda."
     },
     mapImage: "assets/tiim-1-kaart.png",
     mapLink: "https://maps.app.goo.gl/1bkvb2Zo4GqqxK9HA",
@@ -71,7 +71,7 @@ if (!data || !trail) {
   console.error("Tiimi andmeid või teeraja elementi ei leitud.");
 } else {
   let currentPoint = Number(
-    localStorage.getItem(`${team}-currentPoint`) || 0
+    localStorage.getItem(`${team}-currentPoint-v2`) || 0
   );
 
   // Need koodid tuleb tiimile Messengeris saata.
@@ -204,7 +204,7 @@ if (!data || !trail) {
               currentPoint = index + 1;
 
               localStorage.setItem(
-                `${team}-currentPoint`,
+                `${team}-currentPoint-v2`,
                 String(currentPoint)
               );
 
