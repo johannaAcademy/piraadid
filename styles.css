@@ -43,3 +43,122 @@ body{background:var(--ink)}
 @keyframes sheen{12%,100%{transform:translateX(130%)}}
 .submit{cursor:pointer;transition:transform .2s,filter .2s}.submit:hover{transform:translateY(-2px);filter:brightness(1.12)}
 @media(max-width:850px){.scrollCue,.birds{display:none}.heroImage{background-position:62% center}.heroContent{padding-bottom:78px}.meta span{font-size:11px}.nav{background:#030304ee}.card:hover{transform:none}}
+/* =========================
+   PIRATE TEAM BUTTONS
+   ========================= */
+
+.teamButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 25px;
+}
+
+.teamBtn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 150px;
+  padding: 24px 15px;
+
+  text-decoration: none;
+  text-align: center;
+
+  background: linear-gradient(145deg, #160b09, #090606);
+  border: 2px solid #8c6328;
+
+  box-shadow:
+    0 8px 0 #260806,
+    0 18px 35px #0009;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
+}
+
+.teamBtn:hover {
+  transform: translateY(-6px);
+  border-color: #e2b45d;
+
+  box-shadow:
+    0 14px 0 #260806,
+    0 25px 45px #000,
+    0 0 25px #8f211a55;
+}
+
+.teamBtn:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 4px 0 #260806,
+    0 10px 20px #000;
+}
+
+.teamIcon {
+  font-size: 42px;
+  margin-bottom: 8px;
+}
+
+.teamName {
+  font: 900 22px Cinzel;
+  letter-spacing: 2px;
+  color: #e2b45d;
+}
+
+.teamAction {
+  margin-top: 10px;
+  font: 800 10px Cinzel;
+  letter-spacing: 1.5px;
+  color: #cfc2aa;
+}
+
+/* Tiimide väike erinevus */
+
+.team1 {
+  border-color: #b3271e;
+}
+
+.team1:hover {
+  border-color: #f04435;
+  box-shadow:
+    0 14px 0 #260806,
+    0 25px 45px #000,
+    0 0 30px #b3271e55;
+}
+
+.team2 {
+  border-color: #8f6b32;
+}
+
+.team2:hover {
+  border-color: #e2b45d;
+  box-shadow:
+    0 14px 0 #260806,
+    0 25px 45px #000,
+    0 0 30px #d7ad5555;
+}
+
+
+/* Telefon */
+
+@media (max-width: 600px) {
+  .teamButtons {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .teamBtn {
+    min-height: 125px;
+  }
+
+  .teamIcon {
+    font-size: 36px;
+  }
+
+  .teamName {
+    font-size: 20px;
+  }
+}
