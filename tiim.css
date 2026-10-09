@@ -123,15 +123,7 @@ h1{
   color:var(--gold);
 }
 
-.mapImage{
-  width:100%;
-  border-radius:10px;
-  border:1px solid #4a3923;
-  display:block;
-  margin:15px 0;
-}
-
-.mapButton{
+.actionButton{
   display:block;
   text-align:center;
   text-decoration:none;
@@ -145,7 +137,7 @@ h1{
   box-shadow:0 4px 0 var(--red2);
 }
 
-.mapButton:active{
+.actionButton:active{
   transform:translateY(3px);
   box-shadow:none;
 }
