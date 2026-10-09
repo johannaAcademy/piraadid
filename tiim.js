@@ -151,14 +151,11 @@ function renderTrail(){
           isCurrent
           ? `
             <div class="proofForm">
-
-              <form
-                action="https://formsubmit.co/jxrandmae@gmail.com"
-                method="POST"
-                enctype="multipart/form-data"
-                target="hiddenSubmitFrame"
-                onsubmit="proofSent(${index})"
-              >
+<form
+  action="https://formsubmit.co/jxrandmae@gmail.com"
+  method="POST"
+  enctype="multipart/form-data"
+>
 
                 <input
                   type="hidden"
