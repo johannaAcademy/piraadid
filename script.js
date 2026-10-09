@@ -8,7 +8,7 @@ const chest=document.querySelector("#chestBtn"),secret=document.querySelector("#
 chest?.addEventListener("click",()=>{
  secret.style.display="block";
  for(let i=0;i<24;i++){const c=document.createElement("span");c.className="coin";c.textContent="🪙";c.style.left="24%";c.style.top="70%";c.style.setProperty("--x",`${(Math.random()-.5)*520}px`);c.style.setProperty("--y",`${-Math.random()*330-40}px`);document.body.appendChild(c);setTimeout(()=>c.remove(),1800)}
- toast.textContent="💰 AARDE LEITUD";toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),2200);
+ toast.textContent="💰 AARE LEITUD";toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),2200);
 });
 const soundBtn=document.querySelector("#sound");
 const audio=new Audio("pirate-theme.mp3");audio.loop=true;audio.volume=.7;let on=true;
