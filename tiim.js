@@ -197,12 +197,16 @@ function renderTrail(){
                   📸 Tõestuspilt
                 </label>
 
-                <input
-                  type="file"
-                  name="attachment"
-                  accept="image/png,image/jpeg"
-                  required
-                >
+<label>
+  📸 / 🎥 Vali tõestuspilt või -video
+</label>
+
+<input
+  type="file"
+  name="attachment"
+  accept="image/*,video/*"
+  required
+>
 
                 <button
                   class="sendButton"
