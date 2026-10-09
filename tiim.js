@@ -4,26 +4,29 @@ const teamData = {
     mapImage: "assets/tiim-1-kaart.png",
     mapLink: "https://maps.app.goo.gl/h7wY4mK5Vum96ytQ7",
 
+    // ASENDA OMA MESSENGERI GRUPI KUTSELINGIGA
+    messengerLink: "SIIN_TIIM1_MESSENGERI_LINK",
+
     checkpoints: [
       {
         title: "VIRU VÄRAV",
-        clue: "PLACEHOLDER: esimene mõistatus tuleb siia."
+        clue: "PLACEHOLDER: esimene mõistatus."
       },
       {
         title: "PUNKT 2",
-        clue: "PLACEHOLDER: teine mõistatus tuleb siia."
+        clue: "PLACEHOLDER: teine mõistatus."
       },
       {
         title: "PUNKT 3",
-        clue: "PLACEHOLDER: kolmas mõistatus tuleb siia."
+        clue: "PLACEHOLDER: kolmas mõistatus."
       },
       {
         title: "PUNKT 4",
-        clue: "PLACEHOLDER: neljas mõistatus tuleb siia."
+        clue: "PLACEHOLDER: neljas mõistatus."
       },
       {
         title: "KUNINGAKODA KELDER",
-        clue: "PLACEHOLDER: lõpliku aarde vihje tuleb siia."
+        clue: "PLACEHOLDER: lõpliku aarde mõistatus."
       }
     ]
   },
@@ -33,346 +36,217 @@ const teamData = {
     mapImage: "assets/tiim-2-kaart.png",
     mapLink: "https://maps.app.goo.gl/xC6VHM5YAqpepyd66",
 
+    // ASENDA OMA MESSENGERI GRUPI KUTSELINGIGA
+    messengerLink: "SIIN_TIIM2_MESSENGERI_LINK",
+
     checkpoints: [
       {
         title: "KLOOSTRIVÄRAV",
-        clue: "PLACEHOLDER: esimene mõistatus tuleb siia."
+        clue: "PLACEHOLDER: esimene mõistatus."
       },
       {
         title: "PUNKT 2",
-        clue: "PLACEHOLDER: teine mõistatus tuleb siia."
+        clue: "PLACEHOLDER: teine mõistatus."
       },
       {
         title: "PUNKT 3",
-        clue: "PLACEHOLDER: kolmas mõistatus tuleb siia."
+        clue: "PLACEHOLDER: kolmas mõistatus."
       },
       {
         title: "PUNKT 4",
-        clue: "PLACEHOLDER: neljas mõistatus tuleb siia."
+        clue: "PLACEHOLDER: neljas mõistatus."
       },
       {
         title: "KUNINGAKODA KELDER",
-        clue: "PLACEHOLDER: lõpliku aarde vihje tuleb siia."
+        clue: "PLACEHOLDER: lõpliku aarde mõistatus."
       }
     ]
   }
 };
 
-
-// --------------------------------
-// TIIMI VALIMINE
-// --------------------------------
-
 const team = document.body.dataset.team;
 const data = teamData[team];
-
-
-// --------------------------------
-// TEERADA
-// --------------------------------
-
 const trail = document.getElementById("trail");
+const extras = document.getElementById("extras");
 
-let currentPoint =
-  Number(localStorage.getItem(`${team}-currentPoint`)) || 0;
+if (!data || !trail) {
+  console.error("Tiimi andmeid või teeraja elementi ei leitud.");
+} else {
+  let currentPoint = Number(
+    localStorage.getItem(`${team}-currentPoint`) || 0
+  );
 
-function renderTrail(){
+  // Need koodid tuleb tiimile Messengeris saata.
+  // Muuda neid soovi korral enda valitud koodideks.
+  const captainCodes = [
+    "PUNKT2",
+    "PUNKT3",
+    "PUNKT4",
+    "AARE",
+    "LÕPP"
+  ];
 
-  trail.innerHTML = "";
+  function messengerButton(text = "SAADA TÕESTUS MESSENGERIS") {
+    const a = document.createElement("a");
+    a.className = "mapButton";
+    a.href = data.messengerLink;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.textContent = `💬 ${text}`;
+    return a;
+  }
 
-  data.checkpoints.forEach((point,index)=>{
+  function renderTrail() {
+    trail.replaceChildren();
 
-    const unlocked = index <= currentPoint;
-    const completed = index < currentPoint;
-    const isCurrent = index === currentPoint;
+    data.checkpoints.forEach((point, index) => {
+      const unlocked = index <= currentPoint;
+      const completed = index < currentPoint;
+      const card = document.createElement("article");
 
-    const card = document.createElement("div");
+      card.className =
+        `card ${!unlocked ? "locked" : ""} ` +
+        `${completed ? "completed" : ""}`;
 
-    card.className =
-      `card ${!unlocked ? "locked" : ""} ${completed ? "completed" : ""}`;
+      const heading = document.createElement("h3");
+      heading.className = "pointTitle";
+      heading.textContent =
+        `${unlocked ? "⚓" : "🔒"} ${point.title}`;
 
-    if(!unlocked){
+      card.appendChild(heading);
 
-      card.innerHTML = `
-        <div class="pointHeader">
-          <div>
-            <div class="pointNumber">PUNKT ${index + 1}</div>
-            <div class="pointTitle">🔒 ${point.title}</div>
-          </div>
+      if (!unlocked) {
+        const lockedText = document.createElement("p");
+        lockedText.className = "taskText";
+        lockedText.textContent =
+          "Lahendage eelmine punkt ja oodake kapteni kinnitust.";
+        card.appendChild(lockedText);
+      } else {
+        const clue = document.createElement("div");
+        clue.className = "clue";
+        clue.textContent = `🗺️ KAPTENI VIHJE: ${point.clue}`;
+        card.appendChild(clue);
 
-          <div class="status">LUKUS</div>
-        </div>
+        const map = document.createElement("img");
+        map.className = "mapImage";
+        map.src = data.mapImage;
+        map.alt = `${data.name} aardekaart`;
+        card.appendChild(map);
 
-        <div class="lockNotice">
-          Lahenda eelmine punkt ja saada kaptenile tõestus.
-        </div>
-      `;
+        const mapLink = document.createElement("a");
+        mapLink.className = "mapButton";
+        mapLink.href = data.mapLink;
+        mapLink.target = "_blank";
+        mapLink.rel = "noopener noreferrer";
+        mapLink.textContent = "📍 AVA GOOGLE MAPSIS";
+        card.appendChild(mapLink);
 
-    } else {
+        if (completed) {
+          const done = document.createElement("p");
+          done.className = "message";
+          done.textContent = "✅ See punkt on läbitud.";
+          card.appendChild(done);
+        } else {
+          const instructions = document.createElement("p");
+          instructions.className = "taskText";
+          instructions.textContent =
+            "Jõudsite kohale? Saatke oma tõestuspilt või video " +
+            "tiimi Messengeri gruppi. Kapten saadab pärast kontrollimist " +
+            "sinna järgmise punkti avamise koodi.";
+          card.appendChild(instructions);
 
-      card.innerHTML = `
-        <div class="pointHeader">
+          card.appendChild(messengerButton());
 
-          <div>
-            <div class="pointNumber">PUNKT ${index + 1}</div>
-            <div class="pointTitle">
-              ${completed ? "☠️" : "⚓"} ${point.title}
-            </div>
-          </div>
+          const unlockBox = document.createElement("div");
+          unlockBox.className = "unlockBox";
 
-          <div class="status">
-            ${completed ? "LÄBITUD" : "AKTIIVNE"}
-          </div>
+          const input = document.createElement("input");
+          input.placeholder = "KAPTENI KOOD";
+          input.autocomplete = "off";
+          input.id = `unlockCode${index}`;
 
-        </div>
+          const button = document.createElement("button");
+          button.className = "unlockButton";
+          button.textContent = "⚓ AVA JÄRGMINE PUNKT";
 
-        <div class="clue">
-          <strong>🗺️ KAPTENI VIHJE</strong>
-          <br><br>
-          ${point.clue}
-        </div>
+          const message = document.createElement("p");
+          message.className = "message";
+          message.id = `unlockMessage${index}`;
 
-        <img
-          class="mapImage"
-          src="${data.mapImage}"
-          alt="${data.name} aardekaart"
-        >
+          button.addEventListener("click", () => {
+            const entered = input.value.trim().toUpperCase();
+            const expected = captainCodes[index];
 
-        <a
-          class="mapButton"
-          href="${data.mapLink}"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          📍 AVA ALGUSPUNKT GOOGLE MAPSIS
-        </a>
+            if (entered === expected) {
+              currentPoint = index + 1;
 
-        ${
-          isCurrent
-          ? `
-            <div class="proofForm">
-<form
-  action="https://formsubmit.co/jxrandmae@gmail.com"
-  method="POST"
-  enctype="multipart/form-data"
->
+              localStorage.setItem(
+                `${team}-currentPoint`,
+                String(currentPoint)
+              );
 
-                <input
-                  type="hidden"
-                  name="_subject"
-                  value="🏴‍☠️ ${data.name} — PUNKT ${index + 1} TÕESTUS"
-                >
+              renderTrail();
+              renderExtraTasks();
 
-                <input
-                  type="hidden"
-                  name="_template"
-                  value="table"
-                >
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            } else {
+              message.textContent = "⚠️ Vale kood, merekoer!";
+              input.value = "";
+            }
+          });
 
-                <input
-                  type="hidden"
-                  name="_captcha"
-                  value="true"
-                >
-
-                <input
-                  type="hidden"
-                  name="_honey"
-                  value=""
-                >
-
-                <input
-                  type="hidden"
-                  name="team"
-                  value="${data.name}"
-                >
-
-                <input
-                  type="hidden"
-                  name="point"
-                  value="${index + 1} — ${point.title}"
-                >
-
-                <label>
-                  📸 Tõestuspilt
-                </label>
-
-<label>
-  📸 / 🎥 Vali tõestuspilt või -video
-</label>
-
-<input
-  type="file"
-  name="attachment"
-  accept="image/*,video/*"
-  required
->
-
-                <button
-                  class="sendButton"
-                  type="submit"
-                >
-                  ☠️ SAADA TÕESTUS KAPTENILE
-                </button>
-
-                <div
-                  class="message"
-                  id="proofMessage${index}"
-                ></div>
-
-              </form>
-
-            </div>
-
-            <div class="unlockBox">
-
-              <div>
-                🔐 <b>Kapteni kinnitus</b>
-              </div>
-
-              <p style="margin:8px 0;color:#9a917e;font-size:14px">
-                Kui kapten on tõestuse heaks kiitnud,
-                saad temalt järgmise punkti avamise koodi.
-              </p>
-
-              <input
-                id="unlockCode${index}"
-                placeholder="KAPTENI KOOD"
-                autocomplete="off"
-              >
-
-              <button
-                class="unlockButton"
-                onclick="unlockNext(${index})"
-              >
-                ⚓ AVA JÄRGMINE PUNKT
-              </button>
-
-              <div
-                class="message"
-                id="unlockMessage${index}"
-              ></div>
-
-            </div>
-          `
-          : ""
+          unlockBox.append(input, button, message);
+          card.appendChild(unlockBox);
         }
-      `;
-    }
+      }
 
-    trail.appendChild(card);
-  });
-
-  renderFinalState();
-}
-
-
-// --------------------------------
-// FOTO SAATMINE
-// --------------------------------
-
-function proofSent(index){
-
-  setTimeout(()=>{
-
-    const message =
-      document.getElementById(`proofMessage${index}`);
-
-    if(message){
-      message.innerHTML =
-        "📨 Tõestus saadetud kaptenile! Oota kapteni kinnitust.";
-    }
-
-  },100);
-
-}
-
-
-// --------------------------------
-// JÄRGMINE PUNKT
-// --------------------------------
-
-function unlockNext(index){
-
-  const input =
-    document.getElementById(`unlockCode${index}`);
-
-  const message =
-    document.getElementById(`unlockMessage${index}`);
-
-  const code =
-    input.value.trim().toUpperCase();
-
-  /*
-    PLACEHOLDER KOODID
-
-    Hiljem muudame need päris koodideks.
-  */
-
-  const captainCodes = {
-
-    0: "PUNKT2",
-    1: "PUNKT3",
-    2: "PUNKT4",
-    3: "AARE",
-    4: "LÕPP"
-
-  };
-
-  if(code === captainCodes[index]){
-
-    currentPoint = index + 1;
-
-    localStorage.setItem(
-      `${team}-currentPoint`,
-      currentPoint
-    );
-
-    renderTrail();
-
-    window.scrollTo({
-      top:0,
-      behavior:"smooth"
+      trail.appendChild(card);
     });
-
-  }else{
-
-    message.textContent =
-      "⚠️ Vale kood, merekoer!";
-
-    input.value = "";
-
   }
-}
 
+  function renderExtraTasks() {
+    if (!extras) return;
 
-// --------------------------------
-// LÕPP-PUNKT
-// --------------------------------
+    const taskCards = extras.querySelectorAll(".extraTask");
+    const finished = currentPoint >= data.checkpoints.length;
 
-function renderFinalState(){
+    taskCards.forEach((card, index) => {
+      const existing = card.querySelector(".extraMessenger");
 
-  const extras =
-    document.getElementById("extras");
+      if (existing) existing.remove();
 
-  if(!extras) return;
+      if (finished) {
+        card.classList.add("locked");
+        card.setAttribute("aria-disabled", "true");
 
-  if(currentPoint >= data.checkpoints.length){
+        const note = document.createElement("p");
+        note.className = "message extraMessenger";
+        note.textContent = "🔒 Aardeni on jõutud. Lisapunktide ülesanded on suletud.";
+        card.appendChild(note);
+      } else {
+        card.classList.remove("locked");
+        card.removeAttribute("aria-disabled");
 
-    extras.classList.add("locked");
+        const title =
+          card.querySelector(".pointTitle")?.textContent.trim()
+          || `Lisapunkt ${index + 1}`;
 
-    extras.innerHTML = `
-      <div class="card">
-        <div class="lockNotice">
-          🔒 <b>LISAPUNKTIDE ÜLESANDED ON SULETUD</b>
-          <br><br>
-          Te jõudsite aardeni.
-          Nüüd enam lisapunkte koguda ei saa.
-        </div>
-      </div>
-    `;
+        const note = document.createElement("p");
+        note.className = "taskText extraMessenger";
+        note.textContent =
+          "Kui ülesanne on tehtud, saatke pilt või video " +
+          "Messengeri gruppi. Kirjutage sõnumisse ülesande nimi: " +
+          title + ".";
 
+        card.appendChild(note);
+
+        const button = messengerButton();
+        button.classList.add("extraMessenger");
+        card.appendChild(button);
+      }
+    });
   }
-}
 
-renderTrail();
+  renderTrail();
+  renderExtraTasks();
+}
