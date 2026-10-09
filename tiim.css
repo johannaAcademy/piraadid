@@ -275,3 +275,157 @@ input[type="file"]{
     font-size:19px;
   }
 }
+
+/* =====================================
+   SALAJASE MISSIOONI AVAMISE EKRAAN
+   ===================================== */
+
+#lock {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 440px;
+  margin: 8vh auto 0;
+  padding: 38px 28px 32px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 0%, #38240f 0%, transparent 65%),
+    linear-gradient(155deg, #17110c, #090808 75%);
+  border: 1px solid #8c672f;
+  border-radius: 5px;
+  box-shadow:
+    0 0 0 5px #0d0b08,
+    0 0 0 6px #49351c,
+    0 25px 70px #000b,
+    0 0 45px #b27b2020;
+}
+
+/* Dekoratiivne kuldne joon */
+#lock::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12%;
+  width: 76%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #f0c96c,
+    #8f5b20,
+    #f0c96c,
+    transparent
+  );
+}
+
+/* Väike piraadimärk pealkirja kohal */
+#lock::after {
+  content: "☠";
+  display: block;
+  color: #e8b64c;
+  font-size: 48px;
+  margin-bottom: 12px;
+  text-shadow: 0 0 25px #e8b64c55;
+}
+
+#lock h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(30px, 7vw, 42px);
+  letter-spacing: 4px;
+  line-height: 1.2;
+  color: #f0cb75;
+  text-shadow: 0 3px 20px #e8b64c22;
+  margin-bottom: 16px;
+}
+
+#lock .sub {
+  max-width: 300px;
+  margin: 0 auto 28px;
+  color: #c0b29a;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+#lock .sub br + * {
+  color: #e8b64c;
+}
+
+#lock form {
+  text-align: left;
+}
+
+#lock input {
+  display: block;
+  width: 100%;
+  min-height: 58px;
+  padding: 16px;
+  background: #070605;
+  color: #f4e6c5;
+  border: 1px solid #5b4629;
+  border-radius: 3px;
+  outline: none;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  letter-spacing: 5px;
+  text-align: center;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+#lock input::placeholder {
+  color: #74634a;
+  font-size: 13px;
+  letter-spacing: 4px;
+}
+
+#lock input:focus {
+  border-color: #e8b64c;
+  box-shadow: 0 0 0 3px #e8b64c18;
+}
+
+#lock .unlockButton {
+  display: block;
+  width: 100%;
+  min-height: 56px;
+  margin-top: 16px;
+  padding: 15px;
+  color: #160e06;
+  background: linear-gradient(135deg, #f0ce7b, #bd852e);
+  border: 1px solid #f5d992;
+  border-radius: 3px;
+  box-shadow: 0 5px 0 #68451b;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: transform .2s, filter .2s;
+}
+
+#lock .unlockButton:hover {
+  filter: brightness(1.15);
+  transform: translateY(-2px);
+}
+
+#lock .unlockButton:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #68451b;
+}
+
+#lock .message {
+  color: #f0806f;
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.5;
+  margin-top: 15px;
+}
+
+@media (max-width: 480px) {
+  #lock {
+    margin-top: 5vh;
+    padding: 32px 20px 26px;
+  }
+
+  #lock::after {
+    font-size: 42px;
+  }
+}
