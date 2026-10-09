@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="et"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050506"><meta name="robots" content="noindex">
+<title>Tiim 2 ☠️ Salajane</title>
+<style>
+:root{--bg:#050506;--panel:#101014;--gold:#e8b64c;--red:#b3271e;--ink:#f2ead8;--mut:#9a917e}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:radial-gradient(1200px 600px at 50% -10%,#1a1208 0%,var(--bg) 60%);color:var(--ink);font-family:Georgia,serif;min-height:100dvh;display:flex;flex-direction:column;align-items:center;padding:24px 18px}
+main{width:100%;max-width:480px;margin:auto}
+h1{color:var(--gold);text-align:center;font-size:clamp(28px,8vw,40px);letter-spacing:3px;margin-bottom:8px}
+.sub{color:var(--mut);text-align:center;margin-bottom:22px;line-height:1.5}
+.panel{background:var(--panel);border:1px solid #2a2118;border-radius:16px;padding:22px;margin-bottom:16px;line-height:1.6;font-size:17px}
+.panel h2{color:var(--gold);font-size:18px;letter-spacing:2px;margin-bottom:8px}
+input{width:100%;font-size:22px;padding:16px;border-radius:12px;border:1px solid #3a2f1e;background:#0a0808;color:var(--ink);text-align:center;letter-spacing:4px;text-transform:uppercase;font-family:inherit}
+button{width:100%;margin-top:14px;background:var(--red);color:var(--ink);border:none;border-radius:12px;padding:16px;font-size:16px;letter-spacing:2px;font-weight:700;font-family:inherit;box-shadow:0 4px 0 #6e130d}
+button:active{transform:translateY(3px);box-shadow:none}
+.err{color:#ff7a6e;text-align:center;margin-top:12px;min-height:22px}
+.big{font-size:22px;text-align:center;color:var(--gold);font-weight:700}
+#secret{display:none}
+</style></head><body><main>
+<div id="lock">
+<h1>🔒 TIIM 2</h1>
+<p class="sub">See leht on salajane.<br>Sisesta kapteni antud kood.</p>
+<form id="f"><input id="code" autocomplete="off" autocapitalize="characters" placeholder="KOOD"><button>☠️ AVA</button><p class="err" id="err"></p></form>
+</div>
+<div id="secret">
+<h1>☠️ TIIM 2</h1>
+<p class="sub">Salajane missioon – ära näita teisele tiimile!</p>
+<div class="panel"><p class="big">Te olete TIIM 2.<br>Teie ülesanne on võita TIIM 1!</p></div>
+<div class="panel"><h2>💰 PEAMINE EESMÄRK</h2><p>Jõudke aarde juurde enne teist tiimi – selle eest saab <b>kõige rohkem punkte</b>.</p></div>
+<div class="panel"><h2>⚔️ TEEL ÜLESANDED</h2><p>Teel tuleb läbida ülesandeid, mille eest saate lisapunkte. Iga täidetud ülesanne loeb!</p></div>
+<div class="panel"><h2>🏆 KES VÕIDAB?</h2><p>Lõplik võitja selgub alles siis, kui <b>mõlemad võistkonnad on kohal</b>. Kui jõuate kiiresti sihtkohta, aga teisi ülesandeid ei täida, võite siiski hoopis kaotada!</p></div>
+</div>
+</main>
+<script>
+const H="924e83a70ae7dcf4e681774d45196bae873b0a1da0d6c4543a92b89917d98d34",K="tiim2-ok";
+async function sha(s){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}
+const open=()=>{lock.style.display="none";secret.style.display="block"};
+if(sessionStorage.getItem(K)===H)open();
+f.addEventListener("submit",async e=>{e.preventDefault();if(await sha(code.value.trim().toUpperCase())===H){sessionStorage.setItem(K,H);open()}else{err.textContent="⚠️ Vale kood, merekoer!";code.value=""}});
+</script></body></html>
