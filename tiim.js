@@ -66,7 +66,7 @@ if (!data || !trail) {
 
   function messengerButton(text = "SAADA TÕESTUS MESSENGERIS") {
     const a = document.createElement("a");
-    a.className = "mapButton";
+    a.className = "actionButton";
     a.href = data.messengerLink;
     a.target = "_blank";
     a.rel = "noopener noreferrer";
