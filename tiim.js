@@ -1,64 +1,62 @@
 const teamData = {
   tiim1: {
     name: "TIIM 1",
+    start: {
+      title: "PIKK HERMANN",
+      address: "Lossi plats 1a, Tallinn",
+      note: "See on teie alguspunkt. Esimene mõistatus juhatab teid Taani Kuninga aeda."
+    },
     mapImage: "assets/tiim-1-kaart.png",
-    mapLink: "https://maps.app.goo.gl/h7wY4mK5Vum96ytQ7",
-
+    mapLink: "https://maps.app.goo.gl/1bkvb2Zo4GqqxK9HA",
     // ASENDA OMA MESSENGERI GRUPI KUTSELINGIGA
     messengerLink: "SIIN_TIIM1_MESSENGERI_LINK",
-
     checkpoints: [
       {
-        title: "VIRU VÄRAV",
-        clue: "PLACEHOLDER: esimene mõistatus."
+        title: "TAANI KUNINGA AED",
+        clue: "Meid on kolm, me ei räägi ega liigu, kuid ometi jälgime kõiki, kes meist mööduvad. Me kanname rüüd, aga pole enam kloostris. Meie aed kuulub kuningale, kelle kroonilt pole päike kunagi loojunud. Leia koht, kus kolm vaikivat munka valvavad oma saladust, äkki just nemad varjavadki aarde asukohta."
       },
       {
-        title: "PUNKT 2",
-        clue: "PLACEHOLDER: teine mõistatus."
+        title: "HIRVE SKULPTUUR",
+        clue: "Vanade piraatide legend räägib metsloomast, kellel oli neli jalga, sarved ja üks saatuslik nõrkus: uudishimu. Ühel ööl sattus ta silmitsi kapten Mustkaheksajalaga ja vaatas talle otse silma. Juba järgmisel sekundil muutus ta kiviks."
       },
       {
-        title: "PUNKT 3",
-        clue: "PLACEHOLDER: kolmas mõistatus."
+        title: "PAKS MARGAREETA",
+        clue: "Ma olen nii paks, et isegi suur muuseum mahub mu sisse ära. Kunagi kaitsesin linna nende eest, kes tulid merelt, nüüd peidan endas lugusid laevadest ja meresõitjatest"
       },
       {
-        title: "PUNKT 4",
-        clue: "PLACEHOLDER: neljas mõistatus."
-      },
-      {
-        title: "KUNINGAKODA KELDER",
-        clue: "PLACEHOLDER: lõpliku aarde mõistatus."
+        title: "KUNINGAKODA — LÕPP-PUNKT",
+        clue: "Ärge laske end petta: kõige suuremad saladused ei peitu troonidel, vaid nende all. Otsige üles kuninglik koda, laskuge sinna, kuhu päevavalgus ei ulatu, ja valmistuge kohtuma oma saatusega."
       }
     ]
   },
 
   tiim2: {
     name: "TIIM 2",
+    start: {
+      title: "KLOOSTRIVÄRAV",
+      address: "Gümnaasiumi tn 1, Tallinn",
+      note: "See on teie alguspunkt. Esimene mõistatus juhatab teid Paksu Margareeta juurde."
+    },
     mapImage: "assets/tiim-2-kaart.png",
-    mapLink: "https://maps.app.goo.gl/xC6VHM5YAqpepyd66",
-
+    mapLink: "https://maps.app.goo.gl/6r1JTcLYn9dfaxyq5",
     // ASENDA OMA MESSENGERI GRUPI KUTSELINGIGA
     messengerLink: "SIIN_TIIM2_MESSENGERI_LINK",
-
     checkpoints: [
       {
-        title: "KLOOSTRIVÄRAV",
-        clue: "PLACEHOLDER: esimene mõistatus."
+        title: "PAKS MARGAREETA",
+        clue: "Ma olen nii paks, et isegi suur muuseum mahub mu sisse ära. Kunagi kaitsesin linna nende eest, kes tulid merelt, nüüd peidan endas lugusid laevadest ja meresõitjatest"
       },
       {
-        title: "PUNKT 2",
-        clue: "PLACEHOLDER: teine mõistatus."
+        title: "HIRVE SKULPTUUR",
+        clue: "Vanade piraatide legend räägib metsloomast, kellel oli neli jalga, sarved ja üks saatuslik nõrkus: uudishimu. Ühel ööl sattus ta silmitsi kapten Mustkaheksajalaga ja vaatas talle otse silma. Juba järgmisel sekundil muutus ta kiviks."
       },
       {
-        title: "PUNKT 3",
-        clue: "PLACEHOLDER: kolmas mõistatus."
+        title: "TAANI KUNINGA AED",
+        clue: "Meid on kolm, me ei räägi ega liigu, kuid ometi jälgime kõiki, kes meist mööduvad. Me kanname rüüd, aga pole enam kloostris. Meie aed kuulub kuningale, kelle kroonilt pole päike kunagi loojunud. Leia koht, kus kolm vaikivat munka valvavad oma saladust, äkki just nemad varjavadki aarde asukohta."
       },
       {
-        title: "PUNKT 4",
-        clue: "PLACEHOLDER: neljas mõistatus."
-      },
-      {
-        title: "KUNINGAKODA KELDER",
-        clue: "PLACEHOLDER: lõpliku aarde mõistatus."
+        title: "KUNINGAKODA — LÕPP-PUNKT",
+        clue: "Ärge laske end petta: kõige suuremad saladused ei peitu troonidel, vaid nende all. Otsige üles kuninglik koda, laskuge sinna, kuhu päevavalgus ei ulatu, ja valmistuge kohtuma oma saatusega."
       }
     ]
   }
@@ -81,7 +79,6 @@ if (!data || !trail) {
   const captainCodes = [
     "PUNKT2",
     "PUNKT3",
-    "PUNKT4",
     "AARE",
     "LÕPP"
   ];
@@ -98,6 +95,32 @@ if (!data || !trail) {
 
   function renderTrail() {
     trail.replaceChildren();
+
+    // Näita alguspunkti eraldi; see ei ole üks kolmest mõistatusepunktist.
+    const startCard = document.createElement("article");
+    startCard.className = "card startCard";
+
+    const startHeading = document.createElement("h3");
+    startHeading.className = "pointTitle";
+    startHeading.textContent = `⚓ ALGUS: ${data.start.title}`;
+
+    const startAddress = document.createElement("p");
+    startAddress.className = "taskText";
+    startAddress.textContent = data.start.address;
+
+    const startNote = document.createElement("p");
+    startNote.className = "taskText";
+    startNote.textContent = data.start.note;
+
+    const routeLink = document.createElement("a");
+    routeLink.className = "mapButton";
+    routeLink.href = data.mapLink;
+    routeLink.target = "_blank";
+    routeLink.rel = "noopener noreferrer";
+    routeLink.textContent = "🧭 AVA KOGU TEERADA GOOGLE MAPSIS";
+
+    startCard.append(startHeading, startAddress, startNote, routeLink);
+    trail.appendChild(startCard);
 
     data.checkpoints.forEach((point, index) => {
       const unlocked = index <= currentPoint;
