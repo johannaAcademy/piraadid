@@ -1,0 +1,277 @@
+:root{
+  --bg:#050506;
+  --panel:#101014;
+  --panel2:#16100d;
+  --gold:#e8b64c;
+  --gold2:#a77a2d;
+  --red:#b3271e;
+  --red2:#6e130d;
+  --ink:#f2ead8;
+  --mut:#9a917e;
+  --green:#557a48;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  background:
+    radial-gradient(1000px 600px at 50% -10%,#241508 0%,var(--bg) 60%);
+  color:var(--ink);
+  font-family:Georgia,serif;
+  min-height:100vh;
+  padding:25px 18px 60px;
+}
+
+main{
+  width:100%;
+  max-width:650px;
+  margin:auto;
+}
+
+h1{
+  color:var(--gold);
+  text-align:center;
+  font-size:clamp(30px,8vw,48px);
+  letter-spacing:3px;
+  margin-bottom:8px;
+}
+
+.sub{
+  color:var(--mut);
+  text-align:center;
+  margin-bottom:28px;
+  line-height:1.5;
+}
+
+.section{
+  margin-bottom:24px;
+}
+
+.sectionTitle{
+  color:var(--gold);
+  font-size:25px;
+  letter-spacing:2px;
+  margin-bottom:8px;
+}
+
+.sectionIntro{
+  color:var(--mut);
+  line-height:1.6;
+  margin-bottom:18px;
+}
+
+.card{
+  background:linear-gradient(145deg,#15100d,#0b0908);
+  border:1px solid #33271b;
+  border-radius:14px;
+  padding:22px;
+  margin-bottom:14px;
+  box-shadow:0 8px 25px #0008;
+}
+
+.card.locked{
+  opacity:.42;
+  filter:grayscale(.5);
+}
+
+.card.completed{
+  border-color:#527044;
+  background:linear-gradient(145deg,#11170f,#0b0c09);
+}
+
+.pointHeader{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:12px;
+}
+
+.pointNumber{
+  color:var(--gold);
+  font-size:13px;
+  letter-spacing:2px;
+  font-weight:bold;
+}
+
+.pointTitle{
+  font-size:22px;
+  margin-top:4px;
+}
+
+.status{
+  font-size:12px;
+  letter-spacing:1px;
+  color:var(--mut);
+  white-space:nowrap;
+}
+
+.clue{
+  background:#080706;
+  border:1px dashed #72572c;
+  padding:18px;
+  border-radius:10px;
+  line-height:1.65;
+  margin:15px 0;
+}
+
+.clue strong{
+  color:var(--gold);
+}
+
+.mapImage{
+  width:100%;
+  border-radius:10px;
+  border:1px solid #4a3923;
+  display:block;
+  margin:15px 0;
+}
+
+.mapButton{
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  background:var(--red);
+  color:var(--ink);
+  padding:14px;
+  border-radius:10px;
+  font-weight:bold;
+  letter-spacing:1px;
+  margin-top:12px;
+  box-shadow:0 4px 0 var(--red2);
+}
+
+.mapButton:active{
+  transform:translateY(3px);
+  box-shadow:none;
+}
+
+.proofForm{
+  margin-top:18px;
+  padding-top:16px;
+  border-top:1px solid #2b231a;
+}
+
+.proofForm label{
+  display:block;
+  color:var(--mut);
+  font-size:14px;
+  margin-bottom:8px;
+}
+
+input[type="file"]{
+  width:100%;
+  background:#090807;
+  border:1px solid #3a2f1e;
+  color:var(--ink);
+  padding:12px;
+  border-radius:9px;
+}
+
+.sendButton,
+.unlockButton{
+  width:100%;
+  margin-top:12px;
+  border:0;
+  border-radius:10px;
+  padding:14px;
+  background:var(--gold);
+  color:#171008;
+  font-weight:900;
+  letter-spacing:1px;
+  cursor:pointer;
+}
+
+.unlockBox{
+  margin-top:15px;
+  padding:15px;
+  background:#090807;
+  border:1px solid #47371f;
+  border-radius:10px;
+}
+
+.unlockBox input{
+  width:100%;
+  background:#050505;
+  color:var(--ink);
+  border:1px solid #3a2f1e;
+  border-radius:9px;
+  padding:13px;
+  font-size:18px;
+  text-align:center;
+  letter-spacing:4px;
+  text-transform:uppercase;
+}
+
+.message{
+  margin-top:10px;
+  min-height:20px;
+  color:var(--gold);
+  text-align:center;
+  font-size:14px;
+}
+
+.extraTask{
+  position:relative;
+}
+
+.extraPoints{
+  color:var(--gold);
+  font-weight:bold;
+  white-space:nowrap;
+}
+
+.taskText{
+  line-height:1.6;
+  margin:14px 0;
+}
+
+.points{
+  padding-left:18px;
+  line-height:1.8;
+  color:#d9cfbc;
+}
+
+.finalCard{
+  border-color:var(--gold);
+  text-align:center;
+}
+
+.finalCard h3{
+  color:var(--gold);
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.finalMessage{
+  line-height:1.7;
+  color:#d9cfbc;
+}
+
+.lockNotice{
+  text-align:center;
+  padding:20px;
+  color:var(--mut);
+}
+
+@media(max-width:600px){
+  body{
+    padding:18px 12px 40px;
+  }
+
+  .card{
+    padding:18px;
+  }
+
+  .pointHeader{
+    align-items:flex-start;
+  }
+
+  .pointTitle{
+    font-size:19px;
+  }
+}
