@@ -6,7 +6,6 @@ const teamData = {
       address: "Peate asuma Pika Hermani torni juures",
       note: "Esimene mõistatus juhatab teid järgmisse sihtkohta."
     },
-    messengerLink: "https://www.messenger.com/t/1132026785962385",
     checkpoints: [
       {
         location: "Taani Kuninga aed",
@@ -30,7 +29,7 @@ const teamData = {
         clue: "Vanade piraatide legend räägib metsloomast, kellel oli neli jalga, sarved ja üks saatuslik nõrkus: uudishimu. Ühel ööl sattus ta silmitsi kapten Mustkaheksajalaga ja vaatas talle otse silma. Juba järgmisel sekundil muutus ta kiviks."
       },
       {
-        location: "Paks Margareeta (Eesti Meremuuseum)",
+        location: "Paks Margareeta",
         clue: "Kunagi kaitsesin linna nende eest, kes tulid merelt, nüüd peidan endas lugusid laevadest ja meresõitjatest. Ma olen nii pirakas, et isegi muuseum mahub mu sisse ära."
       },
       {
@@ -47,7 +46,6 @@ const teamData = {
       address: "Gümnaasiumi tn 1, Tallinn",
       note: "See on teie alguspunkt. Esimene mõistatus juhatab teid järgmisse sihtkohta."
     },
-    messengerLink: "https://www.messenger.com/t/899544646445974",
     checkpoints: [
       {
         location: "Paks Margareeta (Eesti Meremuuseum)",
@@ -88,24 +86,6 @@ if (!data || !trail) {
 
   // Kapten saadab koodi alles pärast tõestuspildi või video kontrollimist.
   const captainCodes = ["AUK TEKIL", "BANAAN", "KOMPASS", "TUULEHAIS", "EHE PIRАAT"];
-
-  function messengerButton(text = "SAADA TÕESTUS MESSENGERIS") {
-    const a = document.createElement("a");
-    a.className = "actionButton";
-    a.href = data.messengerLink;
-    a.target = "_blank";
-    a.rel = "noopener noreferrer";
-    a.textContent = `💬 ${text}`;
-
-    if (data.messengerLink.startsWith("https://")) {
-      return a;
-    }
-
-    a.removeAttribute("href");
-    a.textContent = "💬 Lisa siia Messengeri grupi link";
-    a.style.opacity = "0.7";
-    return a;
-  }
 
   function renderTrail({ scrollToCurrent = false } = {}) {
     trail.replaceChildren();
@@ -157,7 +137,7 @@ if (!data || !trail) {
       const heading = document.createElement("h3");
       heading.className = "pointTitle";
       heading.textContent = completed
-        ? `UNKT ${index + 1} · ${point.location}`
+        ? `PUNKT ${index + 1} · ${point.location}`
         : `${unlocked ? "⚓" : "🔒"} PUNKT ${index + 1}`;
       card.appendChild(heading);
 
@@ -187,8 +167,6 @@ if (!data || !trail) {
             "Kohale jõudes saatke tõestuspilt või video tiimi Messengeri gruppi, tiimiliikmed peavad peal olema. " +
             "Kapten saadab pärast kontrollimist järgmise punkti avamise koodi.";
           card.appendChild(instructions);
-
-          card.appendChild(messengerButton());
 
           const unlockBox = document.createElement("div");
           unlockBox.className = "unlockBox";
@@ -279,9 +257,6 @@ if (!data || !trail) {
 
         card.appendChild(note);
 
-        const button = messengerButton();
-        button.classList.add("extraMessenger");
-        card.appendChild(button);
       }
     });
   }
