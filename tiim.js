@@ -34,7 +34,7 @@ const teamData = {
       },
       {
         location: "KUNINGAKODA",
-        clue: "Olete läbinud tormid, lahendanud mõistatused ja tõestanud, et teis voolab tõelise piraadi veri. Kuid suurim tasu ootab alles ees!\n\nÜks kuningas, üksainus number, selle juurest otsige üles värav, mis juhatab teid. Ärge laske end eksitada hiilgusest, sest tõelised aarded peituvad seal, kuhu päikesevalgus ei ulatu. Laskuge sügavustesse, kus ootab teid teie retke viimane saladus. Seal kohtute kellegagi, kelle käsu all olete kogu selle aja seilanud… Ja kes teab, ehk ei lahku te sealt tühjade kätega. ☠️💰\n\nPange oma viimane kompass paika, madrused. Kapten ootab! 🏴‍☠️"
+        clue: "Olete läbinud tormid, lahendanud mõistatused ja tõestanud, et teis voolab tõelise piraadi veri. Kuid suurim tasu ootab alles ees!\n\nTeie viimane siht peitub ühel väga kuninglikul tänaval. Otsige üles selle tänava kõige esimene maja ja leidke värav, mis juhatab teid sügavustesse. Ärge laske end eksitada hiilgusest, sest tõelised aarded peituvad seal, kuhu päikesevalgus ei ulatu. Laskuge alla, kus ootab teid retke viimane saladus. Seal kohtute kellegagi, kelle käsu all olete kogu selle aja seilanud… Ja kes teab, ehk ei lahku te sealt tühjade kätega. ☠️💰\n\nPange oma viimane kompass paika, madrused. Kapten ootab! 🏴‍☠️"
       }
     ]
   },
@@ -74,7 +74,7 @@ const teamData = {
       },
       {
         location: "KUNINGAKODA",
-        clue: "Olete läbinud tormid, lahendanud mõistatused ja tõestanud, et teis voolab tõelise piraadi veri. Kuid suurim tasu ootab alles ees!\n\nÜks kuningas, üksainus number, selle juurest otsige üles värav, mis juhatab teid. Ärge laske end eksitada hiilgusest, sest tõelised aarded peituvad seal, kuhu päikesevalgus ei ulatu. Laskuge sügavustesse, kus ootab teid teie retke viimane saladus. Seal kohtute kellegagi, kelle käsu all olete kogu selle aja seilanud… Ja kes teab, ehk ei lahku te sealt tühjade kätega. ☠️💰\n\nPange oma viimane kompass paika, madrused. Kapten ootab! 🏴‍☠️"
+        clue: "Olete läbinud tormid, lahendanud mõistatused ja tõestanud, et teis voolab tõelise piraadi veri. Kuid suurim tasu ootab alles ees!\n\nTeie viimane siht peitub ühel väga kuninglikul tänaval. Otsige üles selle tänava kõige esimene maja ja leidke värav, mis juhatab teid sügavustesse. Ärge laske end eksitada hiilgusest, sest tõelised aarded peituvad seal, kuhu päikesevalgus ei ulatu. Laskuge alla, kus ootab teid retke viimane saladus. Seal kohtute kellegagi, kelle käsu all olete kogu selle aja seilanud… Ja kes teab, ehk ei lahku te sealt tühjade kätega. ☠️💰\n\nPange oma viimane kompass paika, madrused. Kapten ootab! 🏴‍☠️"
       }
     ]
   }
