@@ -2,9 +2,9 @@ const teamData = {
   tiim1: {
     name: "TIIM 1",
     start: {
-      title: "TALL HERMANN",
+      title: "PIKK HERMANN",
       address: "Peate asuma Pika Hermani torni juures",
-      note: "Esimene mõistatus juhatab teid järgmisse kohta. Sihtkoht tuleb mõistatuse järgi ise ära arvata ja kohale jõudes asukohast tiimipilt saata."
+      note: "Esimene mõistatus juhatab teid järgmisse sihtkohta."
     },
     messengerLink: "SIIN_TIIM1_MESSENGERI_LINK",
     checkpoints: [
@@ -12,10 +12,19 @@ const teamData = {
         location: "Taani Kuninga aed",
         clue: "Meid on kolm, me ei räägi ega liigu, meil pole nägu, kuid ometi jälgime kõiki, kes meist mööduvad. Me kanname rüüd, aga pole enam kloostris. Meie aed kuulub kuningale. Leia koht, kus valvame oma saladust."
       },
-      {
-        location: "Beer House",
-        clue: "Järgmine peatus on Beer House. Öelge baaridaamile kapteni salasõna ja teid teenindatakse. Joogid selguvad kohapeal. Soovi korral saate siin retkest puhata ja tualetti kasutada. Pidage meeles: aardeni esimesena jõudev tiim saab rohkem punkte."
-      },
+{
+  location: "Beer House",
+  clue: "Bravuursed piraadid, nüüd algab uus jaht,\n" +
+    "Ees ootab teid koht, kus kuldne on vaht.\n" +
+    "Ei ole see laev ega mereavarus,\n" +
+    "Rohkem on siin tähtis janu kustutus.\n" +
+    "Hoidke nüüd silmad ja meeled kõik lahti,\n" +
+    "Otsige kõrtsi, kus vahutab vaati.\n" +
+    "Uhked mereröövlid, astuge sisse,\n" +
+    "Sisse astudes baaridaamile andke teada,\n" +
+    "Et „ÜKS MEREMEHE KEELEKASTE, PALUN!” janu peletada aitab!\n\n" +
+    "Joogid selguvad kohapeal. Soovi korral saate siin retkest puhata ja tualetti kasutada. Pidage meeles: aardeni esimesena jõudev tiim saab rohkem punkte."
+}
       {
         location: "Hirve skulptuur",
         clue: "Vanade piraatide legend räägib metsloomast, kellel oli neli jalga, sarved ja üks saatuslik nõrkus: uudishimu. Ühel ööl sattus ta silmitsi kapten Mustkaheksajalaga ja vaatas talle otse silma. Juba järgmisel sekundil muutus ta kiviks."
@@ -36,7 +45,7 @@ const teamData = {
     start: {
       title: "KLOOSTRIVÄRAV",
       address: "Gümnaasiumi tn 1, Tallinn",
-      note: "See on teie alguspunkt. Esimene mõistatus juhatab teid järgmisse kohta. Ärge kasutage kaarti – sihtkoht tuleb mõistatuse järgi ise ära arvata."
+      note: "See on teie alguspunkt. Esimene mõistatus juhatab teid järgmisse sihtkohta."
     },
     messengerLink: "SIIN_TIIM2_MESSENGERI_LINK",
     checkpoints: [
@@ -144,8 +153,7 @@ if (!data || !trail) {
       } else {
         const clue = document.createElement("div");
         clue.className = "clue";
-        clue.textContent = `🗺️ KAPTENI VIHJE: ${point.clue}`;
-        card.appendChild(clue);
+                card.appendChild(clue);
 
         if (completed) {
           const done = document.createElement("p");
@@ -155,9 +163,11 @@ if (!data || !trail) {
         } else {
           const instructions = document.createElement("p");
           instructions.className = "taskText";
+                  clue.textContent = `🗺️ KAPTENI VIHJE: ${point.clue}`;
+
           instructions.textContent =
-            "Arvake mõistatuse järgi asukoht ja minge sinna. Kaarti ega asukoha linki ei näidata. " +
-            "Kohale jõudes saatke tõestuspilt või video tiimi Messengeri gruppi. " +
+            "Arvake mõistatuse järgi täpne asukoht ja minge sinna. " +
+            "Kohale jõudes saatke tõestuspilt või video tiimi Messengeri gruppi, tiimiliikmed peavad peal olema. " +
             "Kapten saadab pärast kontrollimist järgmise punkti avamise koodi.";
           card.appendChild(instructions);
 
