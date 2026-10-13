@@ -48,20 +48,29 @@ const teamData = {
     },
     checkpoints: [
       {
-        location: "Paks Margareeta (Eesti Meremuuseum)",
-        clue: "Ma olen nii paks, et isegi suur muuseum mahub mu sisse ära. Kunagi kaitsesin linna nende eest, kes tulid merelt, nüüd peidan endas lugusid laevadest ja meresõitjatest."
+        location: "Paks Margareeta",
+        clue: "Kunagi kaitsesin linna nende eest, kes tulid merelt, nüüd peidan endas lugusid laevadest ja meresõitjatest. Ma olen nii pirakas, et isegi muuseum mahub mu sisse ära."
       },
-      {
-        location: "Beer House",
-        clue: "Järgmine peatus on Beer House. Öelge baaridaamile kapteni salasõna ja teid teenindatakse. Joogid selguvad kohapeal. Soovi korral saate siin retkest puhata ja tualetti kasutada. Pidage meeles: aardeni esimesena jõudev tiim saab rohkem punkte."
-      },
+{
+  location: "Beer House",
+  clue: "\nBravuursed piraadid, nüüd algab uus jaht,\n" +
+    "Ees ootab teid koht, kus kuldne on vaht.\n" +
+    "Ei ole see laev ega mereavarus,\n" +
+    "Rohkem on siin tähtis janu kustutus.\n" +
+    "Hoidke nüüd silmad ja meeled kõik lahti,\n" +
+    "Otsige kõrtsi, kus vahutab vaati.\n" +
+    "Uhked mereröövlid, astuge sisse,\n" +
+    "Sisse astudes baaridaamile andke teada,\n" +
+    "Et „ÜKS MEREMEHE KEELEKASTE, PALUN!” janu peletada aitab!\n\n" +
+    "PS! Soovi korral saate seal retkest puhata ja tualetti kasutada, kuid pidage meeles, et aardeni esimesena jõudev tiim saab rohkem punkte."
+},
       {
         location: "Hirve skulptuur",
         clue: "Vanade piraatide legend räägib metsloomast, kellel oli neli jalga, sarved ja üks saatuslik nõrkus: uudishimu. Ühel ööl sattus ta silmitsi kapten Mustkaheksajalaga ja vaatas talle otse silma. Juba järgmisel sekundil muutus ta kiviks."
       },
       {
         location: "Taani Kuninga aed",
-        clue: "Meid on kolm, me ei räägi ega liigu, kuid ometi jälgime kõiki, kes meist mööduvad. Me kanname rüüd, aga pole enam kloostris. Meie aed kuulub kuningale, kelle kroonilt pole päike kunagi loojunud. Leia koht, kus kolm vaikivat munka valvavad oma saladust, äkki just nemad varjavadki aarde asukohta."
+        clue: "Meid on kolm, me ei räägi ega liigu, meil pole nägu, kuid ometi jälgime kõiki, kes meist mööduvad. Me kanname rüüd, aga pole enam kloostris. Meie aed kuulub kuningale. Leia koht, kus valvame oma saladust."
       },
       {
         location: "KUNINGAKODA",
