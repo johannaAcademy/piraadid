@@ -23,7 +23,7 @@ const teamData = {
     "Uhked mereröövlid, astuge sisse,\n" +
     "Sisse astudes baaridaamile andke teada,\n" +
     "Et „ÜKS MEREMEHE KEELEKASTE, PALUN!” janu peletada aitab!\n\n" +
-    "Joogid selguvad kohapeal. Soovi korral saate siin retkest puhata ja tualetti kasutada. Pidage meeles: aardeni esimesena jõudev tiim saab rohkem punkte."
+    "PS! Soovi korral saate seal retkest puhata ja tualetti kasutada, kuid pidage meeles, et aardeni esimesena jõudev tiim saab rohkem punkte."
 }
       {
         location: "Hirve skulptuur",
@@ -87,7 +87,7 @@ if (!data || !trail) {
   );
 
   // Kapten saadab koodi alles pärast tõestuspildi või video kontrollimist.
-  const captainCodes = ["PUNKT2", "PUNKT3", "PUNKT4", "PUNKT5", "AARE"];
+  const captainCodes = ["AUK TEKIL", "BANAAN", "KOMPASS", "TUULEHAIS", "EHE PIRАAT"];
 
   function messengerButton(text = "SAADA TÕESTUS MESSENGERIS") {
     const a = document.createElement("a");
