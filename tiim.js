@@ -120,7 +120,7 @@ if (!data || !trail) {
   );
 
   // Kapten saadab koodi alles pärast tõestuspildi või video kontrollimist.
-  const captainCodes = ["AUK TEKIL", "BANAAN", "KOMPASS", "TUULEHAIS", "EHE PIRАAT"];
+  const captainCodes = ["AUK TEKIL", "BANAAN", "KOMPASS", "TUULEHAIS", "EHE PIRAAT"];
 
   function renderTrail({ scrollToCurrent = false } = {}) {
     trail.replaceChildren();
