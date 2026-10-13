@@ -14,7 +14,7 @@ const teamData = {
       },
 {
   location: "Beer House",
-  clue: "Bravuursed piraadid, nüüd algab uus jaht,\n" +
+  clue: "\nBravuursed piraadid, nüüd algab uus jaht,\n" +
     "Ees ootab teid koht, kus kuldne on vaht.\n" +
     "Ei ole see laev ega mereavarus,\n" +
     "Rohkem on siin tähtis janu kustutus.\n" +
@@ -157,7 +157,7 @@ if (!data || !trail) {
       const heading = document.createElement("h3");
       heading.className = "pointTitle";
       heading.textContent = completed
-        ? `✅ PUNKT ${index + 1} · ${point.location}`
+        ? `UNKT ${index + 1} · ${point.location}`
         : `${unlocked ? "⚓" : "🔒"} PUNKT ${index + 1}`;
       card.appendChild(heading);
 
