@@ -154,7 +154,7 @@ if (!data || !trail) {
         const clue = document.createElement("div");
         clue.className = "clue";
                 card.appendChild(clue);
-
+                  clue.textContent = `🗺️ KAPTENI VIHJE: ${point.clue}`;
         if (completed) {
           const done = document.createElement("p");
           done.className = "message";
@@ -163,7 +163,6 @@ if (!data || !trail) {
         } else {
           const instructions = document.createElement("p");
           instructions.className = "taskText";
-                  clue.textContent = `🗺️ KAPTENI VIHJE: ${point.clue}`;
 
           instructions.textContent =
             "Arvake mõistatuse järgi täpne asukoht ja minge sinna. " +
