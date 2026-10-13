@@ -20,6 +20,7 @@
 body{
   background:
     radial-gradient(1000px 600px at 50% -10%,#241508 0%,var(--bg) 60%);
+  background-color:#350909;
   color:var(--ink);
   font-family:Georgia,serif;
   min-height:100vh;
