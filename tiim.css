@@ -64,6 +64,82 @@ h1{
   margin-bottom:18px;
 }
 
+#trail{
+  position:relative;
+  display:grid;
+  gap:16px;
+  margin-top:20px;
+  padding-left:38px;
+}
+
+#trail::before{
+  content:"";
+  position:absolute;
+  left:13px;
+  top:18px;
+  bottom:28px;
+  width:4px;
+  border-radius:9px;
+  background:repeating-linear-gradient(to bottom,var(--gold) 0 12px,transparent 12px 20px);
+  box-shadow:0 0 14px #e8b64c55;
+}
+
+#trail .trailStep{
+  position:relative;
+  margin:0;
+  transition:border-color .25s,box-shadow .25s,opacity .25s;
+}
+
+#trail .trailStep::before{
+  content:"";
+  position:absolute;
+  z-index:1;
+  left:-37px;
+  top:23px;
+  display:grid;
+  width:22px;
+  height:22px;
+  place-items:center;
+  border:2px solid var(--gold2);
+  border-radius:50%;
+  background:#100d09;
+  color:#171008;
+  font:bold 13px Georgia,serif;
+}
+
+#trail .trailStep.completed::before{
+  content:"✓";
+  border-color:#78a568;
+  background:#78a568;
+}
+
+#trail .trailStep.current{
+  border-color:var(--gold);
+  box-shadow:0 0 0 1px #e8b64c55,0 0 28px #e8b64c22;
+}
+
+#trail .trailStep.current::before{
+  border-color:#ffe08a;
+  background:var(--gold);
+  box-shadow:0 0 18px #e8b64caa;
+}
+
+#trail .trailStep.locked::before{
+  border-color:#706957;
+  background:#211c15;
+}
+
+.trailStepLabel{
+  color:var(--gold);
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:1.6px;
+}
+
+#trail .trailStep.locked .trailStepLabel{
+  color:var(--mut);
+}
+
 .card{
   background:linear-gradient(145deg,#15100d,#0b0908);
   border:1px solid #33271b;
@@ -265,6 +341,20 @@ input[type="file"]{
 
   .pointTitle{
     font-size:19px;
+  }
+
+  #trail{
+    padding-left:31px;
+  }
+
+  #trail::before{
+    left:10px;
+  }
+
+  #trail .trailStep::before{
+    left:-31px;
+    width:20px;
+    height:20px;
   }
 }
 

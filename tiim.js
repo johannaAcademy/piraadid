@@ -107,11 +107,16 @@ if (!data || !trail) {
     return a;
   }
 
-  function renderTrail() {
+  function renderTrail({ scrollToCurrent = false } = {}) {
     trail.replaceChildren();
 
     const startCard = document.createElement("article");
-    startCard.className = "card startCard";
+    startCard.className = "card startCard trailStep completed";
+    startCard.id = "trailStart";
+
+    const startLabel = document.createElement("div");
+    startLabel.className = "trailStepLabel";
+    startLabel.textContent = "TEEKONNA ALGUS";
 
     const startHeading = document.createElement("h3");
     startHeading.className = "pointTitle";
@@ -125,17 +130,29 @@ if (!data || !trail) {
     startNote.className = "taskText";
     startNote.textContent = data.start.note;
 
-    startCard.append(startHeading, startAddress, startNote);
+    startCard.append(startLabel, startHeading, startAddress, startNote);
     trail.appendChild(startCard);
 
     data.checkpoints.forEach((point, index) => {
       const unlocked = index <= currentPoint;
       const completed = index < currentPoint;
+      const isCurrent = index === currentPoint && index < data.checkpoints.length;
       const card = document.createElement("article");
 
       card.className =
-        `card ${!unlocked ? "locked" : ""} ` +
-        `${completed ? "completed" : ""}`;
+        `card trailStep ${!unlocked ? "locked" : ""} ` +
+        `${completed ? "completed" : ""} ${isCurrent ? "current" : ""}`;
+      card.id = `trailPoint-${index}`;
+      if (isCurrent) card.setAttribute("aria-current", "step");
+
+      const stepLabel = document.createElement("div");
+      stepLabel.className = "trailStepLabel";
+      stepLabel.textContent = completed
+        ? `LÄBITUD PEATUS ${index + 1}`
+        : isCurrent
+          ? `PRAEGUNE PEATUS · ${index + 1}/${data.checkpoints.length}`
+          : `JÄRGMINE PEATUS · ${index + 1}/${data.checkpoints.length}`;
+      card.appendChild(stepLabel);
 
       const heading = document.createElement("h3");
       heading.className = "pointTitle";
@@ -195,9 +212,8 @@ if (!data || !trail) {
             if (entered === expected) {
               currentPoint = index + 1;
               localStorage.setItem(`${team}-currentPoint-v4`, String(currentPoint));
-              renderTrail();
+              renderTrail({ scrollToCurrent: true });
               renderExtraTasks();
-              window.scrollTo({ top: 0, behavior: "smooth" });
             } else {
               message.textContent = "⚠️ Vale kood, merekoer!";
               input.value = "";
@@ -215,6 +231,16 @@ if (!data || !trail) {
 
       trail.appendChild(card);
     });
+
+    if (scrollToCurrent) {
+      const targetIndex = Math.min(currentPoint, data.checkpoints.length - 1);
+      requestAnimationFrame(() => {
+        document.getElementById(`trailPoint-${targetIndex}`)?.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+      });
+    }
   }
 
   function renderExtraTasks() {
