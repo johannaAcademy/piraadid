@@ -192,6 +192,7 @@ h1{
   padding:18px;
   border-radius:10px;
   line-height:1.65;
+  white-space:pre-line;
   margin:15px 0;
 }
 
