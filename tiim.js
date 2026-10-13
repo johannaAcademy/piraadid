@@ -6,7 +6,7 @@ const teamData = {
       address: "Peate asuma Pika Hermani torni juures",
       note: "Esimene mõistatus juhatab teid järgmisse sihtkohta."
     },
-    messengerLink: "SIIN_TIIM1_MESSENGERI_LINK",
+    messengerLink: "https://m.me/j/zyEvcx6yOJH1Pgp0/?send_source=gc:copy_invite_link_c",
     checkpoints: [
       {
         location: "Taani Kuninga aed",
@@ -47,7 +47,7 @@ const teamData = {
       address: "Gümnaasiumi tn 1, Tallinn",
       note: "See on teie alguspunkt. Esimene mõistatus juhatab teid järgmisse sihtkohta."
     },
-    messengerLink: "SIIN_TIIM2_MESSENGERI_LINK",
+    messengerLink: "https://m.me/j/FVfZMQXab_qLqvqp/?send_source=gc:copy_invite_link_c",
     checkpoints: [
       {
         location: "Paks Margareeta (Eesti Meremuuseum)",
