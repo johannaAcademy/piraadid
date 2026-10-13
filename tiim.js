@@ -84,6 +84,32 @@ const team = document.body.dataset.team;
 const data = teamData[team];
 const trail = document.getElementById("trail");
 const extras = document.getElementById("extras");
+const trailView = document.getElementById("trailView");
+const viewButtons = document.querySelectorAll(".viewButton");
+
+function setView(view, { scroll = false } = {}) {
+  const showTrail = view === "trail";
+  if (trailView) trailView.hidden = !showTrail;
+  if (extras) extras.hidden = showTrail;
+
+  viewButtons.forEach(button => {
+    const active = button.dataset.view === view;
+    button.classList.toggle("isActive", active);
+    button.setAttribute("aria-selected", String(active));
+  });
+
+  if (scroll) {
+    document.getElementById(showTrail ? "trailView" : "extras")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+}
+
+viewButtons.forEach(button => {
+  button.addEventListener("click", () => setView(button.dataset.view, { scroll: true }));
+});
+setView("trail");
 
 if (!data || !trail) {
   console.error("Tiimi andmeid või teeraja elementi ei leitud.");
