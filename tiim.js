@@ -166,16 +166,17 @@ if (!data || !trail) {
           "Lahendage eelmine punkt, saatke kaptenile tõestus ja oodake avamiskoodi.";
         card.appendChild(lockedText);
       } else {
-        const clue = document.createElement("div");
-        clue.className = "clue";
-        clue.textContent = `🗺️ KAPTENI VIHJE: ${point.clue}`;
-        card.appendChild(clue);
         if (completed) {
           const done = document.createElement("p");
           done.className = "message";
           done.textContent = "✅ See punkt on läbitud.";
           card.appendChild(done);
         } else {
+          const clue = document.createElement("div");
+          clue.className = "clue";
+          clue.textContent = `🗺️ KAPTENI VIHJE: ${point.clue}`;
+          card.appendChild(clue);
+
           const instructions = document.createElement("p");
           instructions.className = "taskText";
 
