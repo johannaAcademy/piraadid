@@ -139,9 +139,7 @@ if (!data || !trail) {
 
       const heading = document.createElement("h3");
       heading.className = "pointTitle";
-      heading.textContent = unlocked
-        ? `⚓ ${point.location === "Beer House" ? "Beer House" : index === data.checkpoints.length - 1 ? "LÕPP-MÕISTATUS" : `MÕISTATUS ${index + 1}`}`
-        : `🔒 MÕISTATUS ${index + 1}`;
+      heading.textContent = `${unlocked ? "⚓" : "🔒"} ${point.location}`;
       card.appendChild(heading);
 
       if (!unlocked) {
