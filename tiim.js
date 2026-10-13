@@ -2,22 +2,30 @@ const teamData = {
   tiim1: {
     name: "TIIM 1",
     start: {
-      title: "SALAJANE ALGUSPUNKT",
-      address: "Alustage oma kokkulepitud alguskohast.",
-      note: "Esimene mõistatus juhatab teid järgmisse kohta. Ärge kasutage kaarti – sihtkoht tuleb mõistatuse järgi ise ära arvata."
+      title: "TALL HERMANN",
+      address: "Peate asuma Pika Hermani torni juures",
+      note: "Esimene mõistatus juhatab teid järgmisse kohta. Sihtkoht tuleb mõistatuse järgi ise ära arvata ja kohale jõudes asukohast tiimipilt saata."
     },
     messengerLink: "SIIN_TIIM1_MESSENGERI_LINK",
     checkpoints: [
       {
-        clue: "Meid on kolm, me ei räägi ega liigu, kuid ometi jälgime kõiki, kes meist mööduvad. Me kanname rüüd, aga pole enam kloostris. Meie aed kuulub kuningale, kelle kroonilt pole päike kunagi loojunud. Leia koht, kus kolm vaikivat munka valvavad oma saladust, äkki just nemad varjavadki aarde asukohta."
+        location: "Taani Kuninga aed",
+        clue: "Meid on kolm, me ei räägi ega liigu, meil pole nägu, kuid ometi jälgime kõiki, kes meist mööduvad. Me kanname rüüd, aga pole enam kloostris. Meie aed kuulub kuningale. Leia koht, kus valvame oma saladust."
       },
       {
+        location: "Beer House",
+        clue: "Järgmine peatus on Beer House. Öelge baaridaamile kapteni salasõna ja teid teenindatakse. Joogid selguvad kohapeal. Soovi korral saate siin retkest puhata ja tualetti kasutada. Pidage meeles: aardeni esimesena jõudev tiim saab rohkem punkte."
+      },
+      {
+        location: "Hirve skulptuur",
         clue: "Vanade piraatide legend räägib metsloomast, kellel oli neli jalga, sarved ja üks saatuslik nõrkus: uudishimu. Ühel ööl sattus ta silmitsi kapten Mustkaheksajalaga ja vaatas talle otse silma. Juba järgmisel sekundil muutus ta kiviks."
       },
       {
-        clue: "Ma olen nii paks, et isegi suur muuseum mahub mu sisse ära. Kunagi kaitsesin linna nende eest, kes tulid merelt, nüüd peidan endas lugusid laevadest ja meresõitjatest."
+        location: "Paks Margareeta (Eesti Meremuuseum)",
+        clue: "Kunagi kaitsesin linna nende eest, kes tulid merelt, nüüd peidan endas lugusid laevadest ja meresõitjatest. Ma olen nii pirakas, et isegi muuseum mahub mu sisse ära."
       },
       {
+        location: "KUNINGAKODA",
         clue: "Ärge laske end petta: kõige suuremad saladused ei peitu troonidel, vaid nende all. Otsige üles kuninglik koda, laskuge sinna, kuhu päevavalgus ei ulatu, ja valmistuge kohtuma oma saatusega."
       }
     ]
@@ -33,15 +41,23 @@ const teamData = {
     messengerLink: "SIIN_TIIM2_MESSENGERI_LINK",
     checkpoints: [
       {
+        location: "Paks Margareeta (Eesti Meremuuseum)",
         clue: "Ma olen nii paks, et isegi suur muuseum mahub mu sisse ära. Kunagi kaitsesin linna nende eest, kes tulid merelt, nüüd peidan endas lugusid laevadest ja meresõitjatest."
       },
       {
+        location: "Beer House",
+        clue: "Järgmine peatus on Beer House. Öelge baaridaamile kapteni salasõna ja teid teenindatakse. Joogid selguvad kohapeal. Soovi korral saate siin retkest puhata ja tualetti kasutada. Pidage meeles: aardeni esimesena jõudev tiim saab rohkem punkte."
+      },
+      {
+        location: "Hirve skulptuur",
         clue: "Vanade piraatide legend räägib metsloomast, kellel oli neli jalga, sarved ja üks saatuslik nõrkus: uudishimu. Ühel ööl sattus ta silmitsi kapten Mustkaheksajalaga ja vaatas talle otse silma. Juba järgmisel sekundil muutus ta kiviks."
       },
       {
+        location: "Taani Kuninga aed",
         clue: "Meid on kolm, me ei räägi ega liigu, kuid ometi jälgime kõiki, kes meist mööduvad. Me kanname rüüd, aga pole enam kloostris. Meie aed kuulub kuningale, kelle kroonilt pole päike kunagi loojunud. Leia koht, kus kolm vaikivat munka valvavad oma saladust, äkki just nemad varjavadki aarde asukohta."
       },
       {
+        location: "KUNINGAKODA",
         clue: "Ärge laske end petta: kõige suuremad saladused ei peitu troonidel, vaid nende all. Otsige üles kuninglik koda, laskuge sinna, kuhu päevavalgus ei ulatu, ja valmistuge kohtuma oma saatusega."
       }
     ]
@@ -56,13 +72,13 @@ const extras = document.getElementById("extras");
 if (!data || !trail) {
   console.error("Tiimi andmeid või teeraja elementi ei leitud.");
 } else {
-  // Uus võtmeversioon alustab mängu puhtalt lehelt ega kasuta vana salvestatud edenemist.
+  // Uus võtmeversioon alustab muudetud teekonna puhtalt lehelt.
   let currentPoint = Number(
-    localStorage.getItem(`${team}-currentPoint-v3`) || 0
+    localStorage.getItem(`${team}-currentPoint-v4`) || 0
   );
 
   // Kapten saadab koodi alles pärast tõestuspildi või video kontrollimist.
-  const captainCodes = ["PUNKT2", "PUNKT3", "AARE", "LÕPP"];
+  const captainCodes = ["PUNKT2", "PUNKT3", "PUNKT4", "PUNKT5", "AARE"];
 
   function messengerButton(text = "SAADA TÕESTUS MESSENGERIS") {
     const a = document.createElement("a");
@@ -114,7 +130,9 @@ if (!data || !trail) {
 
       const heading = document.createElement("h3");
       heading.className = "pointTitle";
-      heading.textContent = `${unlocked ? "⚓" : "🔒"} ${index === 3 ? "LÕPP-MÕISTATUS" : `MÕISTATUS ${index + 1}`}`;
+      heading.textContent = unlocked
+        ? `⚓ ${point.location === "Beer House" ? "Beer House" : index === data.checkpoints.length - 1 ? "LÕPP-MÕISTATUS" : `MÕISTATUS ${index + 1}`}`
+        : `🔒 MÕISTATUS ${index + 1}`;
       card.appendChild(heading);
 
       if (!unlocked) {
@@ -157,7 +175,7 @@ if (!data || !trail) {
           const button = document.createElement("button");
           button.className = "unlockButton";
           button.type = "button";
-          button.textContent = index === 3 ? "🏴‍☠️ LÕPETA MÄNG" : "⚓ AVA JÄRGMINE MÕISTATUS";
+          button.textContent = index === data.checkpoints.length - 1 ? "🏴‍☠️ LÕPETA MÄNG" : "⚓ AVA JÄRGMINE MÕISTATUS";
 
           const message = document.createElement("p");
           message.className = "message";
@@ -169,7 +187,7 @@ if (!data || !trail) {
 
             if (entered === expected) {
               currentPoint = index + 1;
-              localStorage.setItem(`${team}-currentPoint-v3`, String(currentPoint));
+              localStorage.setItem(`${team}-currentPoint-v4`, String(currentPoint));
               renderTrail();
               renderExtraTasks();
               window.scrollTo({ top: 0, behavior: "smooth" });
