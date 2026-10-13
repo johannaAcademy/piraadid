@@ -24,7 +24,7 @@ const teamData = {
     "Sisse astudes baaridaamile andke teada,\n" +
     "Et „ÜKS MEREMEHE KEELEKASTE, PALUN!” janu peletada aitab!\n\n" +
     "PS! Soovi korral saate seal retkest puhata ja tualetti kasutada, kuid pidage meeles, et aardeni esimesena jõudev tiim saab rohkem punkte."
-}
+},
       {
         location: "Hirve skulptuur",
         clue: "Vanade piraatide legend räägib metsloomast, kellel oli neli jalga, sarved ja üks saatuslik nõrkus: uudishimu. Ühel ööl sattus ta silmitsi kapten Mustkaheksajalaga ja vaatas talle otse silma. Juba järgmisel sekundil muutus ta kiviks."
@@ -153,8 +153,8 @@ if (!data || !trail) {
       } else {
         const clue = document.createElement("div");
         clue.className = "clue";
-                card.appendChild(clue);
-                  clue.textContent = `🗺️ KAPTENI VIHJE: ${point.clue}`;
+        clue.textContent = `🗺️ KAPTENI VIHJE: ${point.clue}`;
+        card.appendChild(clue);
         if (completed) {
           const done = document.createElement("p");
           done.className = "message";
