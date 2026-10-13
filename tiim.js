@@ -156,7 +156,9 @@ if (!data || !trail) {
 
       const heading = document.createElement("h3");
       heading.className = "pointTitle";
-      heading.textContent = `${unlocked ? "⚓" : "🔒"} ${point.location}`;
+      heading.textContent = completed
+        ? `✅ PUNKT ${index + 1} · ${point.location}`
+        : `${unlocked ? "⚓" : "🔒"} PUNKT ${index + 1}`;
       card.appendChild(heading);
 
       if (!unlocked) {
