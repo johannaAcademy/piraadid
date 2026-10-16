@@ -1,3 +1,15 @@
+const valliBaarClue =
+  "Vaprad piraadid, nüüd algab uus jaht,\n" +
+  "Aarde poole astuge, hoidke silmad lahti.\n" +
+  "Linna peal otsige hubast baari,\n" +
+  "Leidke see üles, kus kõlab klaaside kõla.\n" +
+  "Istuge hetkeks, puhake retkest,\n" +
+  "Baaridaamile öelge salasõna seejärel:\n" +
+  "Aga: „ÜKS MEREMEHE KEELEKASTE, PALUN!” janu peletada aitab!\n" +
+  "Astuge sisse ja öelge see julgelt,\n" +
+  "Rännutee jätkub, ees ootavad uued seiklused!\n\n" +
+  "PS! Soovi korral saate seal retkest puhata ja tualetti kasutada, kuid pidage meeles, et aardeni esimesena jõudev tiim saab rohkem punkte.";
+
 const teamData = {
   tiim1: {
     name: "TIIM 1",
@@ -11,19 +23,10 @@ const teamData = {
         location: "Taani Kuninga aed",
         clue: "Meid on kolm, me ei räägi ega liigu, meil pole nägu, kuid ometi jälgime kõiki, kes meist mööduvad. Me kanname rüüd, aga pole enam kloostris. Meie aed kuulub kuningale. Leia koht, kus valvame oma saladust."
       },
-{
-  location: "Beer House",
-  clue: "\nBravuursed piraadid, nüüd algab uus jaht,\n" +
-    "Ees ootab teid koht, kus kuldne on vaht.\n" +
-    "Ei ole see laev ega mereavarus,\n" +
-    "Rohkem on siin tähtis janu kustutus.\n" +
-    "Hoidke nüüd silmad ja meeled kõik lahti,\n" +
-    "Otsige kõrtsi, kus vahutab vaati.\n" +
-    "Uhked mereröövlid, astuge sisse,\n" +
-    "Sisse astudes baaridaamile andke teada,\n" +
-    "Et „ÜKS MEREMEHE KEELEKASTE, PALUN!” janu peletada aitab!\n\n" +
-    "PS! Soovi korral saate seal retkest puhata ja tualetti kasutada, kuid pidage meeles, et aardeni esimesena jõudev tiim saab rohkem punkte."
-},
+      {
+        location: "Valli Baar",
+        clue: valliBaarClue
+      },
       {
         location: "Hirve skulptuur",
         clue: "Vanade piraatide legend räägib metsloomast, kellel oli neli jalga, sarved ja üks saatuslik nõrkus: uudishimu. Ühel ööl sattus ta silmitsi kapten Mustkaheksajalaga ja vaatas talle otse silma. Juba järgmisel sekundil muutus ta kiviks."
@@ -51,22 +54,13 @@ const teamData = {
         location: "Paks Margareeta",
         clue: "Kunagi kaitsesin linna nende eest, kes tulid merelt, nüüd peidan endas lugusid laevadest ja meresõitjatest. Ma olen nii pirakas, et isegi muuseum mahub mu sisse ära."
       },
-{
-  location: "Beer House",
-  clue: "\nBravuursed piraadid, nüüd algab uus jaht,\n" +
-    "Ees ootab teid koht, kus kuldne on vaht.\n" +
-    "Ei ole see laev ega mereavarus,\n" +
-    "Rohkem on siin tähtis janu kustutus.\n" +
-    "Hoidke nüüd silmad ja meeled kõik lahti,\n" +
-    "Otsige kõrtsi, kus vahutab vaati.\n" +
-    "Uhked mereröövlid, astuge sisse,\n" +
-    "Sisse astudes baaridaamile andke teada,\n" +
-    "Et „ÜKS MEREMEHE KEELEKASTE, PALUN!” janu peletada aitab!\n\n" +
-    "PS! Soovi korral saate seal retkest puhata ja tualetti kasutada, kuid pidage meeles, et aardeni esimesena jõudev tiim saab rohkem punkte."
-},
       {
         location: "Hirve skulptuur",
         clue: "Vanade piraatide legend räägib metsloomast, kellel oli neli jalga, sarved ja üks saatuslik nõrkus: uudishimu. Ühel ööl sattus ta silmitsi kapten Mustkaheksajalaga ja vaatas talle otse silma. Juba järgmisel sekundil muutus ta kiviks."
+      },
+      {
+        location: "Valli Baar",
+        clue: valliBaarClue
       },
       {
         location: "Taani Kuninga aed",
@@ -116,7 +110,7 @@ if (!data || !trail) {
 } else {
   // Uus võtmeversioon alustab muudetud teekonna puhtalt lehelt.
   let currentPoint = Number(
-    localStorage.getItem(`${team}-currentPoint-v4`) || 0
+    localStorage.getItem(`${team}-currentPoint-v5`) || 0
   );
 
   // Kapten saadab koodi alles pärast tõestuspildi või video kontrollimist.
@@ -227,7 +221,7 @@ if (!data || !trail) {
 
             if (entered === expected) {
               currentPoint = index + 1;
-              localStorage.setItem(`${team}-currentPoint-v4`, String(currentPoint));
+              localStorage.setItem(`${team}-currentPoint-v5`, String(currentPoint));
               renderTrail({ scrollToCurrent: true });
               renderExtraTasks();
             } else {
