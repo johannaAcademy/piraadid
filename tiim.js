@@ -6,7 +6,7 @@ const valliBaarClue =
   "Istu hetkeks, kosu veidi,\n" +
   "Baarimelu kutsub ligi.\n" +
   "Aga mõõgaga vaati ära torgi,\n" +
-  "Ära teiste taskutes püssiga sorgi,\n" +
+  "Aga teiste taskutes püssiga ära sorgi,\n" +
   "Röövelpiraat maksab siiski oma joogi.\n\n" +
   "PS! Soovi korral saate seal retkest puhata ja tualetti kasutada, kuid pidage meeles, et aardeni esimesena jõudev tiim saab rohkem punkte.";
 
