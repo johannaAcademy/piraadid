@@ -2,11 +2,11 @@ const valliBaarClue =
   "Väsinud rändur, peatu korraks,\n" +
   "Astu sisse, puhka jalga.\n" +
   "Lähedal on mõnus peatus,\n" +
-  "Sealt leidub sinu retke saatus.\n" +
+  "Lase jalal puhata seal.\n" +
   "Istu hetkeks, kosu veidi,\n" +
   "Baarimelu kutsub ligi.\n" +
   "Aga mõõgaga vaati ära torgi,\n" +
-  "Teiste taskutes püssiga ei sorgi,\n" +
+  "Ära teiste taskutes püssiga sorgi,\n" +
   "Röövelpiraat maksab siiski oma joogi.\n\n" +
   "PS! Soovi korral saate seal retkest puhata ja tualetti kasutada, kuid pidage meeles, et aardeni esimesena jõudev tiim saab rohkem punkte.";
 
