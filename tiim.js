@@ -1,13 +1,13 @@
 const valliBaarClue =
-  "Vaprad piraadid, nüüd algab uus jaht,\n" +
-  "Aarde poole astuge, hoidke silmad lahti.\n" +
-  "Linna peal otsige hubast baari,\n" +
-  "Leidke see üles, kus kõlab klaaside kõla.\n" +
-  "Istuge hetkeks, puhake retkest,\n" +
-  "Baaridaamile öelge salasõna seejärel:\n" +
-  "Aga: „ÜKS MEREMEHE KEELEKASTE, PALUN!” janu peletada aitab!\n" +
-  "Astuge sisse ja öelge see julgelt,\n" +
-  "Rännutee jätkub, ees ootavad uued seiklused!\n\n" +
+  "Vaprad piraadid, teele!\n" +
+  "Aarde poole rutta veel!\n" +
+  "Linna peal on Valli Baar,\n" +
+  "Lõõgastu, siis jätkub jaht.\n" +
+  "Istu, puhka, kosu veidi,\n" +
+  "Baarist lahku virk ja reibas.\n" +
+  "Aarde poole rutta taas,\n" +
+  "Astu teele, ära peatu!\n" +
+  "Rõõmus aare ootab ees!\n\n" +
   "PS! Soovi korral saate seal retkest puhata ja tualetti kasutada, kuid pidage meeles, et aardeni esimesena jõudev tiim saab rohkem punkte.";
 
 const teamData = {
@@ -184,8 +184,11 @@ if (!data || !trail) {
           card.appendChild(done);
         } else {
           const clue = document.createElement("div");
-          clue.className = "clue";
-          clue.textContent = `🗺️ KAPTENI VIHJE: ${point.clue}`;
+          const isValliBaar = point.location === "Valli Baar";
+          clue.className = isValliBaar ? "clue valliClue" : "clue";
+          clue.textContent = isValliBaar
+            ? `🗺️ KAPTENI VIHJE:\n${point.clue}`
+            : `🗺️ KAPTENI VIHJE: ${point.clue}`;
           card.appendChild(clue);
 
           const instructions = document.createElement("p");

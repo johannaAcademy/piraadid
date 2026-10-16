@@ -243,6 +243,13 @@ h1{
   color:var(--gold);
 }
 
+.clue.valliClue{
+  padding:14px;
+  font-size:14px;
+  line-height:1.5;
+  letter-spacing:-.15px;
+}
+
 .actionButton{
   display:block;
   text-align:center;
