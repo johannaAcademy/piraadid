@@ -1,13 +1,13 @@
 const valliBaarClue =
-  "Vaprad piraadid, teele!\n" +
-  "Aarde poole rutta veel!\n" +
-  "Linna peal on Valli Baar,\n" +
-  "Lõõgastu, siis jätkub jaht.\n" +
-  "Istu, puhka, kosu veidi,\n" +
-  "Baarist lahku virk ja reibas.\n" +
-  "Aarde poole rutta taas,\n" +
-  "Astu teele, ära peatu!\n" +
-  "Rõõmus aare ootab ees!\n\n" +
+  "Väsinud rändur, peatu korraks,\n" +
+  "Astu sisse, puhka jalga.\n" +
+  "Lähedal on mõnus peatus,\n" +
+  "Sealt leidub sinu retke saatus.\n" +
+  "Istu hetkeks, kosu veidi,\n" +
+  "Baarimelu kutsub ligi.\n" +
+  "Aga mõõgaga vaati ära torgi,\n" +
+  "Teiste taskutes püssiga ei sorgi,\n" +
+  "Röövelpiraat maksab siiski oma joogi.\n\n" +
   "PS! Soovi korral saate seal retkest puhata ja tualetti kasutada, kuid pidage meeles, et aardeni esimesena jõudev tiim saab rohkem punkte.";
 
 const teamData = {
